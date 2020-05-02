@@ -2,7 +2,7 @@
     background-color: rgb(13, 19, 7);
     text-align: center;
 }  
-.Library h1 {
+.Library h1, h2, h3, h4 {
     font-family: 'Acme', sans-serif;
     font-weight: 600;
 } 
@@ -38,9 +38,13 @@
     text-decoration: none;
 }
 
-.Library h2 {
+.Library h2, h3, h4 {
     color: aliceblue;
     text-decoration: none;
+}
+.Library header {
+    color: aliceblue;
+    padding-bottom: 25px;
 }
 .Library .welcome-tab p {
     margin: auto;
@@ -72,7 +76,10 @@
     transition: all .5s ease-in-out;
     transform: scale(1.1);
     z-index: 2;
-} */
+}
+.Library .content {
+    text-align: justify;
+}
 
 #stories-tabs .tab-content {
     background-color: rgb(13, 19, 7);

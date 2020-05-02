@@ -4,9 +4,17 @@ const dev = {
     REGION: "us-west-2",
     BUCKET: "nanowritlabs-app-ext-scenebuider-uploads-s3bucket-ydu69bnunnjv"
   },
-  apiGateway: {
+  apiSceneBuilder: {
     REGION: "us-west-2",
     URL: "https://k9qztc7af6.execute-api.us-west-2.amazonaws.com/dev"
+  },
+  apiPremiseBuilder: {
+    REGION: "us-west-2",
+    URL: ""
+  },
+  apiLibrary: {
+    REGION: "us-west-2",
+    URL: "https://6uupf7cgde.execute-api.us-west-2.amazonaws.com/dev"
   },
   cognito: {
     REGION: "us-west-2",

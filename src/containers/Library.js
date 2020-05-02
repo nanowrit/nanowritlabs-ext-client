@@ -14,7 +14,7 @@ export default function Library(props) {
                     <Col xsPull={6} mdPush={3} lgPush={3}>
                     <h1>The Library</h1>
                     <ListGroup className="library-list">
-                        <Link to="/classic-stories">
+                        <Link to="/classicStories">
                             <ListGroupItem>
                                 <h2>Classic Pulp Fiction Stories</h2>
                             </ListGroupItem>

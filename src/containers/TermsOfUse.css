@@ -1,9 +1,7 @@
 .TermsOfUse {
     padding-bottom: 250px;
-}
-.TermsOfUse h1 {
-    font-family: 'Crimson Text', serif;
-}
-.TermsOfUse h1, h3, h4, p, li {
     color: #C4BBBA;
+}
+.TermsOfUse > h1 {
+    font-family: 'Crimson Text', serif;
 }

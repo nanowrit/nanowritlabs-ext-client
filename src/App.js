@@ -6,7 +6,8 @@ import "./App.css";
 import Routes from "./Routes";
 import { Auth } from "aws-amplify";
 import config from "./config";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
+import { onError } from "./libs/errorLib";
 
 function App(props) {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
@@ -43,7 +44,7 @@ function App(props) {
     }
     catch(e) {
       if (e !== 'No current user') {
-        alert(e);
+        onError(e);
       }
     }
   
@@ -71,11 +72,17 @@ function App(props) {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
+              <LinkContainer to="/laboratory">
+                <NavItem>Laboratory</NavItem>
+              </LinkContainer>
+              <LinkContainer to="/library">
+                <NavItem>Library</NavItem>
+              </LinkContainer>
               {isAuthenticated ? (
                 <>
-                  <LinkContainer to="/instructions">
+                  {/* <LinkContainer to="/instructions">
                     <NavItem>Instructions</NavItem>
-                  </LinkContainer>
+                  </LinkContainer> */}
                   <LinkContainer to="/settings">
                     <NavItem>Settings</NavItem>
                   </LinkContainer>
@@ -97,7 +104,7 @@ function App(props) {
         <Routes appProps={{ 
           isAuthenticated, userHasAuthenticated
         }} />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     )
   );

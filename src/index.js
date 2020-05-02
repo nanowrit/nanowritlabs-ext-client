@@ -24,33 +24,43 @@ Amplify.configure({
     endpoints: [
       {
         name: "beginnings",
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
+        endpoint: config.apiSceneBuilder.URL,
+        region: config.apiSceneBuilder.REGION
       },
       {
         name: "mirrors",
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION      
+        endpoint: config.apiSceneBuilder.URL,
+        region: config.apiSceneBuilder.REGION      
       },
       {
         name: "darknesss",
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
+        endpoint: config.apiSceneBuilder.URL,
+        region: config.apiSceneBuilder.REGION
       },
       {
         name: "fillers",
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
+        endpoint: config.apiSceneBuilder.URL,
+        region: config.apiSceneBuilder.REGION
       },
       {
         name: "recommitments",
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
+        endpoint: config.apiSceneBuilder.URL,
+        region: config.apiSceneBuilder.REGION
       },
       {
         name: "climaxs",
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
+        endpoint: config.apiSceneBuilder.URL,
+        region: config.apiSceneBuilder.REGION
+      },
+      {
+        name: "classicStories",
+        endpoint: config.apiLibrary.URL,
+        region: config.apiLibrary.REGION
+      },
+      {
+        name: "authors",
+        endpoint: config.apiLibrary.URL,
+        region: config.apiLibrary.REGION
       }
     ]
   }

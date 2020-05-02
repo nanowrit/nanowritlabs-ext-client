@@ -19,10 +19,13 @@ import Settings from "./containers/Settings";
 import ChangeEmail from "./containers/ChangeEmail";
 import ResetPassword from "./containers/ResetPassword";
 import ChangePassword from "./containers/ChangePassword";
-import Instructions from "./containers/Instructions";
 import Library from "./containers/Library";
 import Laboratory from "./containers/Laboratory";
-import ClassicStories from "./containers/ClassicStories";
+import ClassicStories from "./containers/library/classicStories/ClassicStories";
+import NewClassicStory from "./containers/library/classicStories/NewClassicStory";
+import ClassicStory from "./containers/library/classicStories/ClassicStory";
+import NewAuthor from "./containers/library/classicStories/NewAuthor";
+import Authors from "./containers/library/classicStories/Authors";
 import ElephantHeart from "./containers/stories/ElephantHeart";
 import TermsOfUse from "./containers/TermsOfUse";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
@@ -34,14 +37,18 @@ import AppliedRoute from "./components/AppliedRoute";
 export default function Routes({ appProps }) {
   return (
     <Switch>
+      {/* Home Route */}
       <AppliedRoute path="/" exact component={Home} appProps={appProps} />
-      <AuthenticatedRoute path="/instructions" exact component={Instructions} appProps={appProps} />
+
+      {/* Login and Settings routes */}
       <UnauthenticatedRoute path="/login" exact component={Login} appProps={appProps} />
       <UnauthenticatedRoute path="/signup" exact component={Signup} appProps={appProps} />
       <AuthenticatedRoute path="/settings" exact component={Settings} appProps={appProps} />
       <AuthenticatedRoute path="/settings/email" exact component={ChangeEmail} appProps={appProps} />
       <UnauthenticatedRoute path="/login/reset" exact component={ResetPassword} appProps={appProps} />
       <AuthenticatedRoute path="/settings/password" exact component={ChangePassword} appProps={appProps} />
+
+      {/* SceneBuilder Routes */}
       <AuthenticatedRoute path="/beginnings/new" exact component={NewBeginning} appProps={appProps} />
       <AuthenticatedRoute path="/beginnings/:id" exact component={Beginnings} appProps={appProps} />
       <AuthenticatedRoute path="/mirrors/new" exact component={NewMirror} appProps={appProps} />
@@ -54,10 +61,20 @@ export default function Routes({ appProps }) {
       <AuthenticatedRoute path="/recommitments/:id" exact component={Recommitment} appProps={appProps} />
       <AuthenticatedRoute path="/climaxs/new" exact component={NewClimax} appProps={appProps} />
       <AuthenticatedRoute path="/climaxs/:id" exact component={Climax} appProps={appProps} />
+
+      {/* Lobby Routes */}
       <Route path="/library" exact component={Library} appProps={appProps} />
       <Route path="/laboratory" exact component={Laboratory} appProps={appProps} />
-      <Route path="/classic-stories" exact component={ClassicStories} appProps={appProps} />
+
+      {/* Library Routes */}
+      <Route path="/classicStories" exact component={ClassicStories} appProps={appProps} />
+      <Route path="classicStories/:id" exact component={ClassicStory} appProps={appProps} />
+      <AuthenticatedRoute path="/classicStories/new" exact component={NewClassicStory} appProps={appProps} />
+      <AuthenticatedRoute path="/authors/:id" exact component={Authors} appProps={appProps} />
+      <AuthenticatedRoute path="/authors/new" exact component={NewAuthor} appProps={appProps} />
       <Route path="/classic-stories/the-tower-of-the-elephant" exact component={ElephantHeart} appProps={appProps} />
+
+      {/* Utility Routes */}
       <Route path="/terms-of-use" exact component={TermsOfUse} />
       { /* Finally, catch all unmatched routes */ }
       <Route component={NotFound} />

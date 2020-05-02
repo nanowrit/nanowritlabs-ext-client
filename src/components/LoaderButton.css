@@ -1,4 +1,5 @@
 .LoaderButton {
+  margin-bottom: 50px;
   font-family: 'Acme', sans-serif;
 }
 .LoaderButton .spinning.glyphicon {
