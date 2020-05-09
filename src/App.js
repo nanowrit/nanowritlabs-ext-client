@@ -6,12 +6,14 @@ import "./App.css";
 import Routes from "./Routes";
 import { Auth } from "aws-amplify";
 import config from "./config";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
+// import { AppContext } from "./libs/contextLib";
 import { onError } from "./libs/errorLib";
 
 function App(props) {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const [isAdmin, userConfirmedAdmin] = useState(false);
 
   useEffect(() => {
     onLoad();
@@ -41,6 +43,12 @@ function App(props) {
     try {
       await Auth.currentSession();
       userHasAuthenticated(true);
+      let user = await Auth.currentAuthenticatedUser();
+      if (user.signInUserSession.accessToken.payload['cognito:groups'][0] === "Admin") {
+        userConfirmedAdmin(true);
+      }
+      // console.log(user.signInUserSession.accessToken.payload['cognito:groups'][0]);
+      // console.log(user);
     }
     catch(e) {
       if (e !== 'No current user') {
@@ -80,9 +88,6 @@ function App(props) {
               </LinkContainer>
               {isAuthenticated ? (
                 <>
-                  {/* <LinkContainer to="/instructions">
-                    <NavItem>Instructions</NavItem>
-                  </LinkContainer> */}
                   <LinkContainer to="/settings">
                     <NavItem>Settings</NavItem>
                   </LinkContainer>
@@ -102,9 +107,10 @@ function App(props) {
           </Navbar.Collapse>
         </Navbar>
         <Routes appProps={{ 
-          isAuthenticated, userHasAuthenticated
+          isAuthenticated, userHasAuthenticated, 
+          isAdmin, userConfirmedAdmin
         }} />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     )
   );

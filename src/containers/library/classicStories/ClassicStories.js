@@ -16,7 +16,7 @@ export default function Stories(props) {
         async function onLoad() {
 
           try {
-            // const authors = await loadAuthors();
+            const authors = await loadAuthors();
             const classicstorys = await loadClassicStories();
             setAuthors(authors);
             setClassicstorys(classicstorys);
@@ -28,15 +28,15 @@ export default function Stories(props) {
         }
 
         onLoad();
-    }, [props.isAuthenticated]);
+    }, [props.isAuthenticated, props.isAdmin]);
 
     function loadClassicStories() {
         return API.get("classicStories", "/classicstorys");
     }
 
-    // function loadAuthors() {
-    //     return API.get("authors", "/authors");
-    // }
+    function loadAuthors() {
+        return API.get("authors", "/authors");
+    }
 
     function renderClassicStoriesList(classicstorys) {
         return [{}].concat(classicstorys).map((classicstory, i) => 
@@ -48,58 +48,65 @@ export default function Stories(props) {
                 <ListGroupItem>
                     <h3>{classicstory.title}</h3>
                     <header>by {classicstory.authorId}</header>
-                    <p className="content">{classicstory.content.trim().split("\n")[0]}</p>
+                    <p className="content">{classicstory.content.trim().split("\n")[0]}..</p>
                 </ListGroupItem>
             </LinkContainer>
         ) : (
-            <LinkContainer key="new" to="/classicStories/new">
-                <ListGroupItem>
-                    <h4>
-                        <b>{"\uFF0B"}</b> Add a story
-                    </h4>
-                </ListGroupItem>
-            </LinkContainer>
+            <div key="new">
+                {
+                    props.isAdmin ? (
+                        <LinkContainer key="new" to="/classicStories/new">
+                        <ListGroupItem>
+                            <h4>
+                                <b>{"\uFF0B"}</b> Add a story
+                            </h4>
+                        </ListGroupItem>
+                    </LinkContainer>
+                    ) : (
+                        <div></div>
+                    )
+                }
+            </div>
         )
         )
-
     }
 
-    // function renderClassicAuthorsList(authors) {
-    //     return [{}].concat(authors)
-    //         .sort(function (a, b) {
-    //             let x = a.lastName;
-    //             let y = b.lastName;
-    //             if (x < y) {return -1;}
-    //             if (x > y) {return 1;}
-    //             return 0;
-    //         })
-    //         .map((author, i) =>
-    //         i !== 0 ? (
-    //             // <div></div>
-    //             <LinkContainer key={i} to={`/authors/${author.id}`}>
-    //                 <ListGroupItem >
-    //                     <h3>{author.firstName} {author.middleName ? author.middleName : ""} {author.lastName}</h3>
-    //                 </ListGroupItem>
-    //             </LinkContainer>
-    //         ) : (
-    //             <LinkContainer key="new" to="/authors/new">
-    //                 <ListGroupItem>
-    //                     <h4>
-    //                         <b>{"\uFF0B"}</b> Add an author
-    //                     </h4>
-    //                 </ListGroupItem>
-    //           </LinkContainer>
-    //         )
-    //     )
-    // }
+    function renderClassicAuthorsList(authors) {
+        return [{}].concat(authors)
+            .sort(function (a, b) {
+                let x = a.lastName;
+                let y = b.lastName;
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;
+            })
+            .map((author, i) =>
+            i !== 0 ? (
+                // <div></div>
+                <LinkContainer key={i} to={`/authors/${author.id}`}>
+                    <ListGroupItem >
+                        <h3>{author.firstName} {author.middleName ? author.middleName : ""} {author.lastName}</h3>
+                    </ListGroupItem>
+                </LinkContainer>
+            ) : (
+                <LinkContainer key="new" to="/authors/new">
+                    <ListGroupItem>
+                        <h4>
+                            <b>{"\uFF0B"}</b> Add an author
+                        </h4>
+                    </ListGroupItem>
+              </LinkContainer>
+            )
+        )
+    }
 
     return (
         <div className="Library">
             <h1>Classic Pulp Fiction Stories</h1>
-            {/* <header>By Author</header>
-            {!isLoading && renderClassicAuthorsList(authors)} */}
             <header>By Original Print Date</header>
             {!isLoading && renderClassicStoriesList(classicstorys)}
+            {/* <header>By Author</header>
+            {!isLoading && renderClassicAuthorsList(authors)} */}
         </div>
       );
 }

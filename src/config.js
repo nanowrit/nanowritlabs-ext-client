@@ -10,7 +10,7 @@ const dev = {
   },
   apiPremiseBuilder: {
     REGION: "us-west-2",
-    URL: ""
+    URL: "https://rp8f1mn6w1.execute-api.us-west-2.amazonaws.com/dev"
   },
   apiLibrary: {
     REGION: "us-west-2",

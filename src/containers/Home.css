@@ -29,10 +29,10 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.Home .notes p {
+.Home p {
   color: #666;
 }
-.Home .notes .listGroupItem {
+.Home .listGroupItem {
   padding-top: 25px;
   line-height: 45px;
   background: repeating-linear-gradient(
@@ -43,8 +43,11 @@
     #E1FCDF 45px
   );
 }
+.listGroupItem >h3 {
+  color: #423E37;
+}
 
-.Home .notes .active a {
+.Home .active a {
   color: #423E37;
 }
 

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
-import LoaderButton from "../../../components/LoaderButton";
+// import { FormGroup, FormControl } from "react-bootstrap";
+// import LoaderButton from "../../../components/LoaderButton";
 import { s3Upload } from "../../../libs/awsLib";
 import config from "../../../config";
 import "../../../containers/Notes.css";
@@ -25,6 +25,7 @@ export default function ClassicStory(props) {
     async function onLoad() {
       try {
         const classicstory = await loadClassicStory();
+        console.log(classicstory);
         const { 
           authorId, 
           firstAppearedIn, 
@@ -133,89 +134,90 @@ export default function ClassicStory(props) {
   return (
     <div className="Notes">
       {classicstory && (
-        <form onSubmit={handleSubmit}>
-          <h2>{classicstory.title}</h2>
-          <Tabs defaultActiveKey={1} id="uncontrolled-tab">
-            <Tab eventKey={1} title="The Author">
-              <FormGroup controlId="authorId">
-                <FormControl
-                  value={authorId}
-                  componentClass="textarea"
-                  onChange={e => setAuthorId(e.target.value)}
-                />
-              </FormGroup>
-            </Tab>
-            <Tab eventKey={2} title="First Appeared In...">
-              <FormGroup controlId="firstAppearedIn">
-                <FormControl
-                  value={firstAppearedIn}
-                  componentClass="textarea"
-                  onChange={e => setFirstAppearedIn(e.target.value)}
-                />
-              </FormGroup>
-            </Tab>
-            <Tab eventKey={3} title="Original Publication Date">
-              <FormGroup controlId="firstAppearedDate">
-                <FormControl
-                  value={firstAppearedDate}
-                  componentClass="textarea"
-                  onChange={e => setFirstAppearedDate(e.target.value)}
-                />
-              </FormGroup>
-            </Tab>
-            <Tab eventKey={4} title="Title">
-              <FormGroup controlId="title">
-                <FormControl
-                  value={title}
-                  componentClass="textarea"
-                  onChange={e => setTitle(e.target.value)}
-                />
-              </FormGroup>
-            </Tab>
-            <Tab eventKey={5} title="The Story">
-              <FormGroup controlId="content">
-                <FormControl
-                  value={content}
-                  componentClass="textarea"
-                  onChange={e => setContent(e.target.value)}
-                />
-              </FormGroup>
-            </Tab>
-          </Tabs>
-          {/* {beginning.attachment && (
-            <FormGroup>
-              <ControlLabel>Attachment</ControlLabel>
-              <FormControl.Static>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={beginning.attachmentURL}
-                >
-                  {formatFilename(beginning.attachment)}
-                </a>
-              </FormControl.Static>
-            </FormGroup>
-          )} */}
-          <LoaderButton
-            block
-            type="submit"
-            bsSize="large"
-            bsStyle="primary"
-            isLoading={isLoading}
-            disabled={!validateForm()}
-          >
-            Save
-          </LoaderButton>
-          <LoaderButton
-            block
-            bsSize="large"
-            bsStyle="danger"
-            onClick={handleDelete}
-            isLoading={isDeleting}
-          >
-            Delete
-          </LoaderButton>
-        </form>
+        <div>
+        <div className="center">
+          <h2 className="Aladin">{classicstory.title}</h2>
+            <h4>{classicstory.authorId}</h4>
+              <h5 className="pale-silver Acme">First Appeared In: {classicstory.firstAppearedIn}</h5>
+              <h5 className="pale-silver Acme">Date: {classicstory.firstAppearedDate}</h5>
+        </div>
+        <div className="pale-silver story-content">
+          {classicstory.content.split("\n").map((i, key) => {
+            return <div className="Gotu" key={key}><br />{i}</div>;
+          })}
+        </div>
+        </div>
+        // <form onSubmit={handleSubmit}>
+        //   <h2>{classicstory.title}</h2>
+        //       <FormGroup controlId="authorId">
+        //         <FormControl
+        //           value={authorId}
+        //           componentClass="textarea"
+        //           onChange={e => setAuthorId(e.target.value)}
+        //         />
+        //       </FormGroup>
+        //       <FormGroup controlId="firstAppearedIn">
+        //         <FormControl
+        //           value={firstAppearedIn}
+        //           componentClass="textarea"
+        //           onChange={e => setFirstAppearedIn(e.target.value)}
+        //         />
+        //       </FormGroup>
+        //       <FormGroup controlId="firstAppearedDate">
+        //         <FormControl
+        //           value={firstAppearedDate}
+        //           componentClass="textarea"
+        //           onChange={e => setFirstAppearedDate(e.target.value)}
+        //         />
+        //       </FormGroup>
+        //       <FormGroup controlId="title">
+        //         <FormControl
+        //           value={title}
+        //           componentClass="textarea"
+        //           onChange={e => setTitle(e.target.value)}
+        //         />
+        //       </FormGroup>
+        //       <FormGroup controlId="content">
+        //         <FormControl
+        //           value={content}
+        //           componentClass="textarea"
+        //           onChange={e => setContent(e.target.value)}
+        //         />
+        //       </FormGroup>
+          // {/* {beginning.attachment && (
+          //   <FormGroup>
+          //     <ControlLabel>Attachment</ControlLabel>
+          //     <FormControl.Static>
+          //       <a
+          //         target="_blank"
+          //         rel="noopener noreferrer"
+          //         href={beginning.attachmentURL}
+          //       >
+          //         {formatFilename(beginning.attachment)}
+          //       </a>
+          //     </FormControl.Static>
+          //   </FormGroup>
+          // )} */}
+          // <LoaderButton
+          //   block
+          //   type="submit"
+          //   bsSize="large"
+          //   bsStyle="primary"
+          //   isLoading={isLoading}
+          //   disabled={!validateForm()}
+          // >
+          //   Save
+          // </LoaderButton>
+          // <LoaderButton
+          //   block
+          //   bsSize="large"
+          //   bsStyle="danger"
+          //   onClick={handleDelete}
+          //   isLoading={isDeleting}
+          // >
+          //   Delete
+          // </LoaderButton>
+        // </form>
       )}
     </div>
   );

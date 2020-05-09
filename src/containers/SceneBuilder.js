@@ -6,7 +6,7 @@ import { API } from "aws-amplify";
 import Lander from "./Lander";
 import "./Home.css";
 
-export default function Home(props) { 
+export default function SceneBuilder(props) { 
   const [mirrors, setMirrors] = useState([{}]);
   const [beginnings, setBeginnings] = useState([{}]);
   const [darknesss, setDarknesss] = useState([{}]);
@@ -82,19 +82,6 @@ export default function Home(props) {
   function loadClimaxs() {
     return API.get("climaxs", "/climaxs");
   }
-
-  // function renderAddNewButton(array) {
-  //   console.log("Array. :" + JSON.stringify(array))
-  //   return (
-  //     <LinkContainer key="new" to="/array/new">
-  //     <ListGroupItem>
-  //       <h4>
-  //         <b>{"\uFF0B"}</b> Create a new beginning scene
-  //       </h4>
-  //     </ListGroupItem>
-  //   </LinkContainer>
-  //   )
-  // }
 
   function renderBeginningsList(beginnings) {
     return [{}].concat(beginnings).map((beginning, i) =>
@@ -383,38 +370,30 @@ export default function Home(props) {
     return (
       <div className="notes">
         <PageHeader>Your Scenes</PageHeader>
-        <Tabs defaultActiveKey={1} id="uncontrolled-tab">
-          <Tab eventKey={1} className="tigerPoo" title="1. The Beginning Scene">
+          <h3>The Beginning Scene</h3>
             <ListGroup>
               {!isLoading && renderBeginningsList(beginnings)}
             </ListGroup>
-          </Tab>
-          <Tab eventKey={2} title="2. The Mirror Scene">
-              <ListGroup>
-                {!isLoading && renderMirrorsList(mirrors)}
-              </ListGroup>
-          </Tab>
-          <Tab eventKey={3} title="3. The Re-Commitment Scene">
-              <ListGroup>
-                {!isLoading && renderRecommitmentList(recommitments)}
-              </ListGroup>
-          </Tab>
-          <Tab eventKey={4} title="4. The Darkness Scene">
-              <ListGroup>
+          <h3>The Mirror Scene</h3>
+            <ListGroup>
+              {!isLoading && renderMirrorsList(mirrors)}
+            </ListGroup>
+          <h3>The Re-Commitment Scene</h3>
+            <ListGroup>
+              {!isLoading && renderRecommitmentList(recommitments)}
+            </ListGroup>
+          <h3>The Darkness Scene</h3>
+            <ListGroup>
               {!isLoading && renderDarknessList(darknesss)}
-              </ListGroup>
-          </Tab>
-          <Tab eventKey={5} title="5. The Climax Scene">
-              <ListGroup>
+            </ListGroup>
+          <h3>The Climax Scene</h3>
+            <ListGroup>
               {!isLoading && renderClimaxList(climaxs)}
-              </ListGroup>
-          </Tab>
-          <Tab eventKey={6} title="6. The Filler Scene">
-              <ListGroup>
+            </ListGroup>
+            <h3>The Filler Scene</h3>
+            <ListGroup>
               {!isLoading && renderFillerList(fillers)}
-              </ListGroup>
-          </Tab>
-        </Tabs>
+            </ListGroup>
       </div>
     );
   }
@@ -422,7 +401,7 @@ export default function Home(props) {
   return (
     <div className="Home">
       {props.isAuthenticated ?  progress > 99 ? renderScenes() : renderProgressBar()
-      : <Lander />}
+      : <Lander />} 
     </div>
   );
 }

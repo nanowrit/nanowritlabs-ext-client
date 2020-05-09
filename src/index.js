@@ -61,6 +61,11 @@ Amplify.configure({
         name: "authors",
         endpoint: config.apiLibrary.URL,
         region: config.apiLibrary.REGION
+      },
+      {
+        name: "premises",
+        endpoint: config.apiPremiseBuilder.URL,
+        region: config.apiPremiseBuilder.REGION
       }
     ]
   }
