@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
+import { FormGroup, FormControl, Breadcrumb } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
 import "../../containers/Notes.css";
+import { Link } from "react-router-dom";
 
 export default function Recommitment(props) {
     const file = useRef(null);
@@ -93,7 +94,7 @@ export default function Recommitment(props) {
         crossThreshold,
         attachment: attachment || recommitment.attachment
       });
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsLoading(false);
@@ -119,7 +120,7 @@ export default function Recommitment(props) {
   
     try {
       await deleteRecommitment();
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsDeleting(false);
@@ -128,65 +129,71 @@ export default function Recommitment(props) {
   
   return (
     <div className="Notes">
+      <Breadcrumb>
+        <Breadcrumb.Item as="div">
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/laboratory">Laboratory</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/scenebuilder">scenebuilder</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active as="div">
+          The Recommitment Scene
+        </Breadcrumb.Item>
+      </Breadcrumb>
       {recommitment && (
         <form onSubmit={handleSubmit}>
           <h2>Your Recommitment Scene</h2>
-          <Tabs defaultActiveKey={1} id="uncontrolled-tab">
-            <Tab eventKey={1} title="1. The Goal">
+            <h3>The Goal</h3>
               <FormGroup controlId="goal">
                 <FormControl
                   value={goal}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setGoal(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={2} title="2. The Conflict">
+            <h3>The Conflict</h3>
               <FormGroup controlId="conflictField">
                 <FormControl
                   value={conflictField}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setConflictField(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={3} title="3. The Revelation">
+            <h3>The Revelation</h3>
               <FormGroup controlId="revelation">
                 <FormControl
                   value={revelation}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setRevelation(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={4} title="4. Praising the Enemy">
+            <h3>Praising the Enemy</h3>
               <FormGroup controlId="praiseTheEnemy">
                 <FormControl
                   value={praiseTheEnemy}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setPraiseTheEnemy(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={5} title="5. Do or Die">
+            <h3>Do or Die</h3>
               <FormGroup controlId="doOrDie">
                 <FormControl
                   value={doOrDie}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setDoOrDie(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={6} title="6. Crossing the Threshold">
+            <h3>Crossing the Threshold</h3>
               <FormGroup controlId="crossThreshold">
                 <FormControl
                   value={crossThreshold}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setCrossThreshold(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-          </Tabs>
           <LoaderButton
             block
             type="submit"

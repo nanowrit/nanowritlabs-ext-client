@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Glyphicon } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { GiClockwiseRotation } from "react-icons/gi";
 import "./LoaderButton.css";
 
 export default function LoaderButton({
@@ -14,7 +15,7 @@ export default function LoaderButton({
       disabled={disabled || isLoading}
       {...props}
     >
-      {isLoading && <Glyphicon glyph="refresh" className="spinning" />}
+      {isLoading && <GiClockwiseRotation glyph="refresh" className="spinning" />}
       {props.children}
     </Button>
   );

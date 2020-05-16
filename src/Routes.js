@@ -43,6 +43,7 @@ export default function Routes({ appProps }) {
     <Switch>
       {/* Home Route */}
       <AppliedRoute path="/" exact component={Lander} appProps={appProps} />
+      <AppliedRoute path="/home" exact component={Lander} appProps={appProps} />
 
       {/* Login and Settings routes */}
       <UnauthenticatedRoute path="/login" exact component={Login} appProps={appProps} />

@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
-import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
+import { FormGroup, FormControl, Breadcrumb } from "react-bootstrap";
 import { API } from "aws-amplify";
 import { s3Upload } from "../../libs/awsLib";
 import LoaderButton from "../../components/LoaderButton";
 // import config from "../../config";
 import "../../containers/NewNote.css";
+import { Link } from "react-router-dom";
 
 export default function NewBeginning(props) {
   const file = useRef(null);
@@ -54,7 +55,7 @@ export default function NewBeginning(props) {
           threshold,
           attachment 
         });
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsLoading(false);
@@ -69,73 +70,78 @@ export default function NewBeginning(props) {
 
   return (
     <div className="NewNote">
+      <Breadcrumb>
+        <Breadcrumb.Item as="div">
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/laboratory">Laboratory</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/scenebuilder">scenebuilder</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active as="div">
+          New Beginning Scene
+        </Breadcrumb.Item>
+      </Breadcrumb>
       <form onSubmit={handleSubmit}>
-        <h2>The Beginning Scene</h2>
-        <Tabs defaultActiveKey={1} id="uncontrolled-tab">
-          <Tab eventKey={1} title="1. The Hook">
+        <h2>New Beginning Scene</h2>
+          <h3>The Hook</h3>
             <FormGroup controlId="hook">
               <FormControl
                 value={hook}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setHook(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={2} title="2. The Back Story">
+          <h3>The Backstory</h3>
             <FormGroup controlId="backstory">
               <FormControl
                 value={backstory}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setBackstory(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={3} title="3. The Inciting Incident">
+          <h3>The Inciting Incident</h3>
             <FormGroup controlId="incitingIncident">
               <FormControl
                 value={incitingIncident}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setIncitingIncident(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={4} title="4. The Trigger">
+          <h3>The Trigger</h3>
             <FormGroup controlId="triggerEvent">
               <FormControl
                 value={triggerEvent}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setTriggerEvent(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={5} title="5. The Debate">
+          <h3>The Debate</h3>
             <FormGroup controlId="debate">
               <FormControl
                 value={debate}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDebate(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={6} title="6. The Decision">
+          <h3>The Decision</h3>
             <FormGroup controlId="decision">
               <FormControl
                 value={decision}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDecision(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={7} title="7. The Threshold">
+          <h3>The Threshold</h3>
             <FormGroup controlId="threshold">
               <FormControl
                 value={threshold}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setThreshold(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-        </Tabs>
         {/* <FormGroup controlId="file">
           <ControlLabel>Attachment</ControlLabel>
           <FormControl onChange={handleFileChange} type="file" />

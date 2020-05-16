@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { Link } from "react-router-dom";
 import {
-  HelpBlock,
+  Form,
   FormGroup,
-  Glyphicon,
   FormControl,
-  ControlLabel
+  FormLabel
 } from "react-bootstrap";
+import { BsCheck } from "react-icons/bs";
 import LoaderButton from "../components/LoaderButton";
 import "./ResetPassword.css";
 
@@ -81,7 +81,7 @@ export default class ResetPassword extends Component {
     return (
       <form onSubmit={this.handleSendCodeClick}>
         <FormGroup bsSize="large" controlId="email">
-          <ControlLabel>Email</ControlLabel>
+          <FormControl>Email</FormControl>
           <FormControl
             autoFocus
             type="email"
@@ -108,21 +108,21 @@ export default class ResetPassword extends Component {
     return (
       <form onSubmit={this.handleConfirmClick}>
         <FormGroup bsSize="large" controlId="code">
-          <ControlLabel>Confirmation Code</ControlLabel>
+          <FormControl>Confirmation Code</FormControl>
           <FormControl
             autoFocus
             type="tel"
             value={this.state.code}
             onChange={this.handleChange}
           />
-          <HelpBlock>
+          <Form.Text>
             Please check your email ({this.state.email}) for the confirmation
             code.
-          </HelpBlock>
+          </Form.Text>
         </FormGroup>
         <hr />
         <FormGroup bsSize="large" controlId="password">
-          <ControlLabel>New Password</ControlLabel>
+          <FormControl>New Password</FormControl>
           <FormControl
             type="password"
             value={this.state.password}
@@ -130,7 +130,7 @@ export default class ResetPassword extends Component {
           />
         </FormGroup>
         <FormGroup bsSize="large" controlId="confirmPassword">
-          <ControlLabel>Confirm Password</ControlLabel>
+          <FormControl>Confirm Password</FormControl>
           <FormControl
             type="password"
             onChange={this.handleChange}
@@ -154,7 +154,7 @@ export default class ResetPassword extends Component {
   renderSuccessMessage() {
     return (
       <div className="success">
-        <Glyphicon glyph="ok" />
+        <BsCheck glyph="ok" />
         <p>Your password has been reset.</p>
         <p>
           <Link to="/login">

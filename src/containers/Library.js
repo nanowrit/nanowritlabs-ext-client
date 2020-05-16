@@ -1,12 +1,12 @@
 import React from "react";
-import { Image, Grid, Row, Col, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Image, Container, Row, Col, ListGroup, ListGroupItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Library.css";
 
 export default function Library(props) {
     return (
         <div className="Library">
-            <Grid fluid>
+            <Container fluid>
                 <Row>
                     <Col xsHidden smHidden md={3}>
                         <Image className="art" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/Weird_Tales_November_1941.png" />
@@ -42,7 +42,7 @@ export default function Library(props) {
                     </ListGroup>
                     </Col>
                 </Row>
-            </Grid>
+            </Container>
         </div>
     );
 }

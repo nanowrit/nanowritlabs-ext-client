@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import {
-  HelpBlock,
+  Form,
   FormGroup,
   FormControl,
-  ControlLabel
+  FormLabel
 } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import "./ChangeEmail.css";
@@ -71,7 +71,7 @@ export default class ChangeEmail extends Component {
     return (
       <form onSubmit={this.handleUpdateClick}>
         <FormGroup bsSize="large" controlId="email">
-          <ControlLabel>Email</ControlLabel>
+          <FormLabel>Email</FormLabel>
           <FormControl
             autoFocus
             type="email"
@@ -98,17 +98,17 @@ export default class ChangeEmail extends Component {
     return (
       <form onSubmit={this.handleConfirmClick}>
         <FormGroup bsSize="large" controlId="code">
-          <ControlLabel>Confirmation Code</ControlLabel>
+          <FormLabel>Confirmation Code</FormLabel>
           <FormControl
             autoFocus
             type="tel"
             value={this.state.code}
             onChange={this.handleChange}
           />
-          <HelpBlock>
+          <Form.Text>
             Please check your email ({this.state.email}) for the confirmation
             code.
-          </HelpBlock>
+          </Form.Text>
         </FormGroup>
         <LoaderButton
           block

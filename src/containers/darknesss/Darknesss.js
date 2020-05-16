@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
+import { FormGroup, FormControl, Breadcrumb } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
 import "../../containers/Notes.css";
+import { Link } from "react-router-dom";
 
 export default function Darkness(props) {
     const file = useRef(null);
@@ -101,7 +102,7 @@ export default function Darkness(props) {
         doAndDie,
         attachment: attachment || darkness.attachment
       });
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsLoading(false);
@@ -127,7 +128,7 @@ export default function Darkness(props) {
   
     try {
       await deleteDarkness();
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsDeleting(false);
@@ -136,65 +137,71 @@ export default function Darkness(props) {
   
   return (
     <div className="Notes">
+      <Breadcrumb>
+        <Breadcrumb.Item as="div">
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/laboratory">Laboratory</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/scenebuilder">scenebuilder</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active as="div">
+          New Darkness Scene
+        </Breadcrumb.Item>
+      </Breadcrumb>
       {darkness && (
         <form onSubmit={handleSubmit}>
           <h2>The Darkness Scene</h2>
-          <Tabs defaultActiveKey={1} id="uncontrolled-tab">
-            <Tab eventKey={1} title="1. The Goal">
+            <h3>The Goal</h3>
               <FormGroup controlId="goal">
                 <FormControl
                   value={goal}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setGoal(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={2} title="2. The Conflict">
+            <h3>The Conflict</h3>
               <FormGroup controlId="conflictField">
                 <FormControl
                   value={conflictField}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setConflictField(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={3} title="3. The Ultimate Disaster">
+            <h3>The Ultimate Disaster</h3>
               <FormGroup controlId="ultimateDisaster">
                 <FormControl
                   value={ultimateDisaster}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setUltimateDisaster(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={4} title="4. The Darkest Moment">
+            <h3>The Darkest Moment</h3>
               <FormGroup controlId="darkestMoment">
                 <FormControl
                   value={darkestMoment}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setDarkestMoment(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={5} title="5. One Chance">
+            <h3>One Chance</h3>
               <FormGroup controlId="oneChance">
                 <FormControl
                   value={oneChance}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setOneChance(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-            <Tab eventKey={6} title="6. Do and Die">
+            <h3>Do and Die</h3>
               <FormGroup controlId="doAndDie">
                 <FormControl
                   value={doAndDie}
-                  componentClass="textarea"
+                  as="textarea"
                   onChange={e => setDoAndDie(e.target.value)}
                 />
               </FormGroup>
-            </Tab>
-          </Tabs>
           <LoaderButton
             block
             type="submit"
@@ -216,6 +223,7 @@ export default function Darkness(props) {
           </LoaderButton>
         </form>
       )}
+      <Breadcrumb></Breadcrumb>
     </div>
   );
 }

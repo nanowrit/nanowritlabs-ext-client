@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { PageHeader, ListGroup, ListGroupItem, ProgressBar } from "react-bootstrap";
+import { ListGroup, ListGroupItem, ProgressBar, Breadcrumb } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
 // import Lander from "./Lander";
 import "../../containers/Home.css";
+import { Link } from "react-router-dom";
 
 export default function PremiseBuilder(props) { 
   const [premises, setPremises] = useState([{}]);
@@ -90,10 +91,21 @@ export default function PremiseBuilder(props) {
   function renderPremises() {
     return (
       <div className="notes">
-        <PageHeader>Your Premises</PageHeader>
-            <ListGroup>
-              {!isLoading && renderPremisesList(premises)}
-            </ListGroup>
+        <Breadcrumb>
+          <Breadcrumb.Item as="div">
+            <Link to="/">Home</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item as="div">
+            <Link to="/laboratory">Laboratory</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active as="div">
+            PremiseBuilder
+          </Breadcrumb.Item>
+        </Breadcrumb>
+        <h2>Your Premises</h2>
+          <ListGroup>
+            {!isLoading && renderPremisesList(premises)}
+          </ListGroup>
       </div>
     );
   }

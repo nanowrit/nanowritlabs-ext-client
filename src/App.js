@@ -1,7 +1,7 @@
 import { LinkContainer } from "react-router-bootstrap";
 import React, { useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Nav, Navbar, NavItem } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import "./App.css";
 import Routes from "./Routes";
 import { Auth } from "aws-amplify";
@@ -47,11 +47,10 @@ function App(props) {
       if (user.signInUserSession.accessToken.payload['cognito:groups'][0] === "Admin") {
         userConfirmedAdmin(true);
       }
-      // console.log(user.signInUserSession.accessToken.payload['cognito:groups'][0]);
-      // console.log(user);
     }
     catch(e) {
       if (e !== 'No current user') {
+        console.log(e);
         onError(e);
       }
     }
@@ -70,36 +69,33 @@ function App(props) {
   return (
     !isAuthenticating && (
       <div className="App container" id="AppContainer">
-        <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
+        <Navbar collapseOnSelect expand="md" variant="dark">
             <Navbar.Brand>
-              <Link to="/">Nanowrit Labs</Link>
+              <Link to="/" className="spanish-gray">Nanowrit Labs</Link>
             </Navbar.Brand>
-            <h4 className="pale-silver">beta version</h4>
             <Navbar.Toggle />
-          </Navbar.Header>
           <Navbar.Collapse>
-            <Nav pullRight>
+            <Nav className="ml-auto">
               <LinkContainer to="/laboratory">
-                <NavItem>Laboratory</NavItem>
+                <Nav.Link>Laboratory</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/library">
-                <NavItem>Library</NavItem>
+                <Nav.Link>Library</Nav.Link>
               </LinkContainer>
               {isAuthenticated ? (
                 <>
                   <LinkContainer to="/settings">
-                    <NavItem>Settings</NavItem>
+                    <Nav.Link>Settings</Nav.Link>
                   </LinkContainer>
-                  <NavItem onClick={handleLogout}>Logout</NavItem>
+                  <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
                 </>
               ) : (
                 <>
                   <LinkContainer to="/signup">
-                    <NavItem>Signup</NavItem>
+                    <Nav.Link>Signup</Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/login">
-                    <NavItem>Login</NavItem>
+                    <Nav.Link>Login</Nav.Link>
                   </LinkContainer>
                 </>
               )}

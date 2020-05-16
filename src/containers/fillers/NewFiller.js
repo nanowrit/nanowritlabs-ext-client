@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
-import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
+import { FormGroup, FormControl, Breadcrumb } from "react-bootstrap";
 import { API } from "aws-amplify";
 import { s3Upload } from "../../libs/awsLib";
 import LoaderButton from "../../components/LoaderButton";
 import "../../containers/NewNote.css";
+import { Link } from "react-router-dom";
 
 export default function NewFiller(props) {
   const file = useRef(null);
@@ -39,7 +40,7 @@ export default function NewFiller(props) {
           actionField,
           attachment 
         });
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsLoading(false);
@@ -54,64 +55,70 @@ export default function NewFiller(props) {
 
   return (
     <div className="NewNote">
-      <h2>The Filler Scene</h2>
+      <Breadcrumb>
+        <Breadcrumb.Item as="div">
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/laboratory">Laboratory</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/scenebuilder">scenebuilder</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active as="div">
+          New Filler Scene
+        </Breadcrumb.Item>
+      </Breadcrumb>
+      <h2>New Filler Scene</h2>
       <form onSubmit={handleSubmit}>
-        <Tabs defaultActiveKey={1} id="uncontrolled-tab">
-          <Tab eventKey={1} title="1. The Goal">
+          <h3>The Goal</h3>
             <FormGroup controlId="goal">
               <FormControl
                 value={goal}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setGoal(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={2} title="2. The Conflict">
+          <h3>The Conflict</h3>
             <FormGroup controlId="conflictField">
               <FormControl
                 value={conflictField}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setConflictField(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={3} title="3. The Disaster">
+          <h3>The Disaster</h3>
             <FormGroup controlId="disaster">
               <FormControl
                 value={disaster}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDisaster(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={4} title="4. The Dilemma">
+          <h3>The Dilemma</h3>
             <FormGroup controlId="dilemma">
               <FormControl
                 value={dilemma}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDilemma(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={5} title="5. The Decision">
+          <h3>The Decision</h3>
             <FormGroup controlId="decision">
               <FormControl
                 value={decision}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDecision(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={6} title="6. The Action">
+          <h3>The Action</h3>
             <FormGroup controlId="actionField">
               <FormControl
                 value={actionField}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setActionField(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-        </Tabs>
         <LoaderButton
           block
           type="submit"

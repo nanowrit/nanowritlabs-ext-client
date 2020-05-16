@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormGroup, FormControl, Grid, Col } from "react-bootstrap";
+import { FormGroup, FormControl, Container, Col } from "react-bootstrap";
 import { API } from "aws-amplify";
 import LoaderButton from "../../../components/LoaderButton";
 // import config from "../../config";
@@ -92,7 +92,7 @@ export default function NewAuthor(props) {
               />
             </FormGroup>
 
-            <Grid>
+            <Container>
                 <Col  md={6}>
                     <FormGroup controlId="born">
                         <h4>Date of Birth</h4>
@@ -113,7 +113,7 @@ export default function NewAuthor(props) {
                             />
                     </FormGroup>
                 </Col>
-            </Grid>
+            </Container>
 
         <LoaderButton
           block

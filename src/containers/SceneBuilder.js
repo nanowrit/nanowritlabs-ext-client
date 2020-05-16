@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { PageHeader, ListGroup, ListGroupItem, ProgressBar, Tabs, Tab } from "react-bootstrap";
+import { ListGroup, ListGroupItem, ProgressBar, Breadcrumb } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
 import Lander from "./Lander";
 import "./Home.css";
+import { IoIosAdd } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function SceneBuilder(props) { 
   const [mirrors, setMirrors] = useState([{}]);
@@ -369,7 +371,16 @@ export default function SceneBuilder(props) {
   function renderScenes() {
     return (
       <div className="notes">
-        <PageHeader>Your Scenes</PageHeader>
+        <Breadcrumb>
+          <Breadcrumb.Item as="div">
+            <Link to="/">Home</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item as="div">
+            <Link to="/Laboratory">Laboratory</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active as="div">SceneBuilder</Breadcrumb.Item>
+        </Breadcrumb>
+        <h2>Your Scenes</h2>
           <h3>The Beginning Scene</h3>
             <ListGroup>
               {!isLoading && renderBeginningsList(beginnings)}
@@ -378,7 +389,7 @@ export default function SceneBuilder(props) {
             <ListGroup>
               {!isLoading && renderMirrorsList(mirrors)}
             </ListGroup>
-          <h3>The Re-Commitment Scene</h3>
+          <h3>The Recommitment Scene</h3>
             <ListGroup>
               {!isLoading && renderRecommitmentList(recommitments)}
             </ListGroup>
@@ -390,7 +401,10 @@ export default function SceneBuilder(props) {
             <ListGroup>
               {!isLoading && renderClimaxList(climaxs)}
             </ListGroup>
-            <h3>The Filler Scene</h3>
+          <h3 className="d-inline-flex">The Filler Scene</h3>
+            <Link to="/fillers/new">
+              <h3 className="d-inline-flex float-right" ><IoIosAdd /></h3>
+            </Link>
             <ListGroup>
               {!isLoading && renderFillerList(fillers)}
             </ListGroup>

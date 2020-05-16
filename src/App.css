@@ -5,6 +5,14 @@
   padding-bottom: 75px;
 }
 
+.App a:hover {
+  text-decoration: none;
+}
+
+.App .card {
+  background-color: #423E37;
+}
+
 .App .navbar {
   border: none;
   background-color: rgba(66, 62, 55, .5);
@@ -14,7 +22,7 @@
   border-bottom: none;
 }
 
-.App .nav li a:hover {
+.App a:hover {
   color: #C4BBBA;
 }
 
@@ -25,9 +33,31 @@
   font-weight: bold;
 }
 
+.breadcrumb {
+  background-color: transparent;
+}
+
+.breadcrumb a {
+  color: #A39594;
+}
+
+.breadcrumb-item {
+  font-size: large;
+  font-family: 'Bebas Neue', cursive;
+  color: #A39594;
+}
+.breadcrumb-item.active {
+  color: #FFF268 !important;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
 .radioactive {
   color: #FFF268;
   text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.full-length {
+  height: 100vh;
 }
 
 .center {
@@ -38,8 +68,8 @@
   margin-top: 30vh;
 }
 
-.pale-silver {
-  color: #C4BBBA;
+.spanish-gray {
+  color: #A39594;
 }
 
 .Aladin {

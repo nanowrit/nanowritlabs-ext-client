@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
+import { FormGroup, FormControl, Tabs, Tab, Breadcrumb } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
 import "../../containers/Notes.css"; 
+import { Link } from "react-router-dom";
 
 export default function Climax(props) {
     const file = useRef(null);
@@ -105,7 +106,7 @@ export default function Climax(props) {
         wrapUp,
         attachment: attachment || climax.attachment
       });
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsLoading(false);
@@ -131,7 +132,7 @@ export default function Climax(props) {
   
     try {
       await deleteClimax();
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsDeleting(false);
@@ -140,6 +141,20 @@ export default function Climax(props) {
   
   return (
     <div className="Notes">
+      <Breadcrumb>
+        <Breadcrumb.Item as="div">
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/laboratory">Laboratory</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/scenebuilder">scenebuilder</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active as="div">
+          New Beginning Scene
+        </Breadcrumb.Item>
+      </Breadcrumb>
       {climax && (
         <form onSubmit={handleSubmit}>
           <h2>Your Climax Scene</h2>

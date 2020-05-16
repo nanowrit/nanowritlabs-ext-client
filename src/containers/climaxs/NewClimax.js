@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
-import { FormGroup, FormControl, Tabs, Tab } from "react-bootstrap";
+import { FormGroup, FormControl, Breadcrumb } from "react-bootstrap";
 import { API } from "aws-amplify";
 import { s3Upload } from "../../libs/awsLib";
 import LoaderButton from "../../components/LoaderButton";
 import config from "../../config";
 import "../../containers/NewNote.css";
+import { Link } from "react-router-dom";
 
 export default function NewClimax(props) {
   const file = useRef(null);
@@ -54,7 +55,7 @@ export default function NewClimax(props) {
           wrapUp,
           attachment 
         });
-      props.history.push("/");
+      props.history.push("/scenebuilder");
     } catch (e) {
       alert(e);
       setIsLoading(false);
@@ -69,73 +70,78 @@ export default function NewClimax(props) {
 
   return (
     <div className="NewNote">
+      <Breadcrumb>
+        <Breadcrumb.Item as="div">
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/laboratory">Laboratory</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/scenebuilder">scenebuilder</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active as="div">
+          New Climax Scene
+        </Breadcrumb.Item>
+      </Breadcrumb>
       <form onSubmit={handleSubmit}>
-        <h2>The Climax Scene</h2>
-        <Tabs defaultActiveKey={1} id="uncontrolled-tab">
-          <Tab eventKey={1} title="1. The Struggle">
+        <h2>New Climax Scene</h2>
+          <h3>The Struggle</h3>
             <FormGroup controlId="struggle">
               <FormControl
                 value={struggle}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setStruggle(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={2} title="2. The Doubt">
+          <h3>The Doubt</h3>
             <FormGroup controlId="doubt">
               <FormControl
                 value={doubt}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDoubt(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={3} title="3. The Unexpected">
+          <h3>The Unexpected</h3>
             <FormGroup controlId="unexpected">
               <FormControl
                 value={unexpected}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setUnexpected(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={4} title="4. The Climax">
+          <h3>The Climax</h3>
             <FormGroup controlId="climax">
               <FormControl
                 value={climax}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setClimax(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={5} title="5. Poetic Justice">
+          <h3>Poetic Justice</h3>
             <FormGroup controlId="poeticJustice">
               <FormControl
                 value={poeticJustice}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setPoeticJustice(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={6} title="6. Poetic Reward">
+          <h3>Poetic Reward</h3>
             <FormGroup controlId="poeticReward">
               <FormControl
                 value={poeticReward}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setPoeticReward(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-          <Tab eventKey={7} title="7. Wrapping it Up">
+          <h3>Wrapping It Up</h3>
             <FormGroup controlId="wrapUp">
               <FormControl
                 value={wrapUp}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setWrapUp(e.target.value)}
               />
             </FormGroup>
-          </Tab>
-        </Tabs>
         <LoaderButton
           block
           type="submit"
