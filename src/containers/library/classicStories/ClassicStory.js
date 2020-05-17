@@ -138,12 +138,12 @@ export default function ClassicStory(props) {
         <div className="center">
           <h2 className="Aladin">{classicstory.title}</h2>
             <h4>{classicstory.authorId}</h4>
-              <h5 className="pale-silver Acme">First Appeared In: {classicstory.firstAppearedIn}</h5>
-              <h5 className="pale-silver Acme">Date: {classicstory.firstAppearedDate}</h5>
+              <h5 className="spanish-gray Acme">First Appeared In: {classicstory.firstAppearedIn}</h5>
+              <h5 className="spanish-gray Acme">Date: {classicstory.firstAppearedDate}</h5>
         </div>
-        <div className="pale-silver story-content">
+        <div className="spanish-gray story-content">
           {classicstory.content.split("\n").map((i, key) => {
-            return <div className="Gotu" key={key}><br />{i}</div>;
+            return <div className="spanish-gray Gotu" key={key}><br />{i}</div>;
           })}
         </div>
         </div>
