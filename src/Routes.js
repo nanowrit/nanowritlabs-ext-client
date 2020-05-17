@@ -29,7 +29,6 @@ import NewClassicStory from "./containers/library/classicStories/NewClassicStory
 import ClassicStory from "./containers/library/classicStories/ClassicStory";
 import NewAuthor from "./containers/library/classicStories/NewAuthor";
 import Authors from "./containers/library/classicStories/Authors";
-import ElephantHeart from "./containers/stories/ElephantHeart";
 import TermsOfUse from "./containers/TermsOfUse";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
@@ -66,12 +65,11 @@ export default function Routes({ appProps }) {
       <AuthenticatedRoute path="/classicStories/new" exact component={NewClassicStory} appProps={appProps} />
       <AuthenticatedRoute path="/authors/:id" exact component={Authors} appProps={appProps} />
       <AuthenticatedRoute path="/authors/new" exact component={NewAuthor} appProps={appProps} />
-      <Route path="/classic-stories/the-tower-of-the-elephant" exact component={ElephantHeart} appProps={appProps} />
 
       {/* PremiseBuilder Routes */}
       <AuthenticatedRoute path="/premisebuilder" exact component={PremiseBuilder} appProps={appProps} />
-      <AuthenticatedRoute path="/premises/:id" exact component={Premises} appProps={appProps} />
       <AuthenticatedRoute path="/premises/new" exact component={NewPremise} appProps={appProps} />
+      <AuthenticatedRoute path="/premises/:id" exact component={Premises} appProps={appProps} />
 
       {/* SceneBuilder Routes */}
       <AuthenticatedRoute path="/scenebuilder" exact component={SceneBuilder} appProps={appProps} />

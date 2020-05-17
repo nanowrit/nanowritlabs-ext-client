@@ -85,7 +85,7 @@ export default function NewPremise(props) {
             <FormGroup controlId="situation">
               <FormControl
                 value={situation}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setSituation(e.target.value)}
               />
             </FormGroup>
@@ -109,7 +109,7 @@ export default function NewPremise(props) {
             <FormGroup controlId="disaster">
               <FormControl
                 value={disaster}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDisaster(e.target.value)}
               />
             </FormGroup>
@@ -117,7 +117,7 @@ export default function NewPremise(props) {
             <FormGroup controlId="theme">
               <FormControl
                 value={theme}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setTheme(e.target.value)}
               />
             </FormGroup>
@@ -125,7 +125,7 @@ export default function NewPremise(props) {
             <FormGroup controlId="dramaticStatement">
               <FormControl
                 value={dramaticStatement}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDramaticStatement(e.target.value)}
               />
             </FormGroup>
@@ -133,7 +133,7 @@ export default function NewPremise(props) {
             <FormGroup controlId="dramaticQuestion">
               <FormControl
                 value={dramaticQuestion}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDramaticQuestion(e.target.value)}
               />
             </FormGroup>
@@ -144,8 +144,8 @@ export default function NewPremise(props) {
         <LoaderButton
           block
           type="submit"
-          bsSize="large"
-          bsStyle="primary"
+          size="large"
+          variant="primary"
           isLoading={isLoading}
           disabled={!validateForm()}
         >

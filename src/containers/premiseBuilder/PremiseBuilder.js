@@ -26,8 +26,7 @@ export default function PremiseBuilder(props) {
         setProgress(50);
         setProgress(99);
       } catch (e) {
-        console.log(e);
-        // alert(e);
+        alert(e);
       }
   
       setProgress(99);
