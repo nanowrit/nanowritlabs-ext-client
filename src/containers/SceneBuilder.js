@@ -370,7 +370,7 @@ export default function SceneBuilder(props) {
 
   function renderScenes() {
     return (
-      <div className="notes">
+      <div className="notes min-padding">
         <Breadcrumb>
           <Breadcrumb.Item as="div">
             <Link to="/">Home</Link>

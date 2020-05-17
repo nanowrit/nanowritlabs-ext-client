@@ -68,6 +68,10 @@
   margin-top: 30vh;
 }
 
+.min-padding {
+  padding-bottom: min(10rem);
+}
+
 .spanish-gray {
   color: #A39594;
 }

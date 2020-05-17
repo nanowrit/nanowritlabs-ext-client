@@ -10,7 +10,7 @@ export default function Lander(props) {
             <Breadcrumb>
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
             </Breadcrumb>
-            <CardDeck>
+            <CardDeck className="min-padding">
                 <Card>
                     <Card.Title>
                         <Link to="/library">

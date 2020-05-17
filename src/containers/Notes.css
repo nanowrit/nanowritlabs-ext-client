@@ -1,5 +1,5 @@
 .Notes {
-  padding-bottom: 25px;
+  padding-bottom: min(10rem);
 }
 .Notes form {
   color: #525C52;
