@@ -38,15 +38,15 @@ export default function Laboratory(props) {
                             </Link>
                         </Card.Title>
                         <Card.Body>
-                            <Card.Text className="spanish-gray center">
+                            {/* <Card.Text className="spanish-gray center">
                                 This tool helps you build compelling story premises
-                            </Card.Text>
+                            </Card.Text> */}
                             <Link to="/premisebuilder">
                                 <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/PremiseBuilderCardImg.png" />
                             </Link>
-                            <Card.Text className="spanish-gray center">
+                            {/* <Card.Text className="spanish-gray center">
                                 Start here if you don't have a story idea yet
-                            </Card.Text>
+                            </Card.Text> */}
                         </Card.Body>
                     </Card>
                     <Card>
@@ -56,15 +56,15 @@ export default function Laboratory(props) {
                             </Link>            
                         </Card.Title>
                         <Card.Body>
-                            <Card.Text className="spanish-gray center">
+                            {/* <Card.Text className="spanish-gray center">
                                 This tools help you develop your characters
-                            </Card.Text>
+                            </Card.Text> */}
                             <Link to="/scenebuilder">
-                                <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/SceneBuilderCardImg1.png" />
+                                <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/CharacterCreatorCardImg.png" />
                             </Link>
-                            <Card.Text className="spanish-gray center">
+                            {/* <Card.Text className="spanish-gray center">
                                 Go here once you have your premise established
-                            </Card.Text>
+                            </Card.Text> */}
                         </Card.Body>
                     </Card>
                     <Card>
@@ -74,15 +74,15 @@ export default function Laboratory(props) {
                             </Link>            
                         </Card.Title>
                         <Card.Body>
-                            <Card.Text className="spanish-gray center">
+                            {/* <Card.Text className="spanish-gray center">
                                 This tools help you develop your premise into a complete story
-                            </Card.Text>
+                            </Card.Text> */}
                             <Link to="/scenebuilder">
                                 <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/SceneBuilderCardImg1.png" />
                             </Link>
-                            <Card.Text className="spanish-gray center">
+                            {/* <Card.Text className="spanish-gray center">
                                 Go here once you have your premise established and some charaters developed
-                            </Card.Text>
+                            </Card.Text> */}
                         </Card.Body>
                     </Card>
                 </CardDeck>
