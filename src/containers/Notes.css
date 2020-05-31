@@ -19,7 +19,7 @@
     font-variant: small-caps;
   }
   
-  .Notes form textarea {
+  textarea.Notes {
     height: 100vh;
     font-size: 24px;
     padding-top: 45px;

@@ -13,6 +13,10 @@
   background-color: #423E37;
 }
 
+.mainBody {
+  margin-bottom: 30rem;
+}
+
 .App .navbar {
   border: none;
   background-color: rgba(66, 62, 55, .5);
@@ -72,8 +76,16 @@
   padding-bottom: min(10rem);
 }
 
+.pale-silver {
+  color: #C4BBBA;
+}
+
 .spanish-gray {
   color: #A39594;
+}
+
+.dark-goldenrod {
+  background-color: #BA9232;
 }
 
 .Aladin {

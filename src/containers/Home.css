@@ -62,3 +62,10 @@
 .Home .notes .active {
   color: #423E37;
 }
+
+.Laboratory .card-body {
+  padding: 0rem;
+}
+.Laboratory .card-img-bottom {
+  margin-top: 3rem;
+}

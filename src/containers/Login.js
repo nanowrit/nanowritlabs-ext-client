@@ -38,27 +38,29 @@ export default function Login(props) {
 
   return (
     <div className="Login">
+      <h4 className="pale-silver center">Log in with: </h4>
+      <br />
       <FacebookButton className="FacebookButton" onLogin={handleFbLogin} />
       <hr />
       <form onSubmit={handleSubmit}>
-        <FormGroup controlId="email" bsSize="large">
-          <FormLabel>Email</FormLabel>
+        <FormGroup controlId="email" size="lg">
+          <FormLabel className="pale-silver">Email</FormLabel>
           <FormControl
             autoFocus
-            type="email"
+            type="email" 
             value={fields.email}
             onChange={handleFieldChange}
           />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
-          <FormLabel>Password</FormLabel>
+          <FormLabel className="pale-silver">Password</FormLabel>
           <FormControl
             type="password"
             value={fields.password}
             onChange={handleFieldChange}
           />
         </FormGroup>
-        <Link to="/login/reset">Forgot password?</Link>
+        <Link className="spanish-gray" to="/login/reset">Forgot password?</Link>
         <LoaderButton
           block
           type="submit"

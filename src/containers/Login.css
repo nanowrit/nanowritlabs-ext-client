@@ -15,6 +15,12 @@
   font-size: 14px;
 }
 
+.Login input {
+  height: auto;
+  padding-top: 0rem;
+  background: none;
+}
+
 .FacebookButton {
   display: block;
   margin-left: auto;

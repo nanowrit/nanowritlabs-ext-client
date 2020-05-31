@@ -24,20 +24,20 @@ export default function Laboratory(props) {
 
     function RenderLaboratoryLander() {
         return (
-            <div>
+            <div className="options">
                 <Breadcrumb>
 
                         <Breadcrumb.Item as="div"><Link to="/">Home</Link></Breadcrumb.Item>
                         <Breadcrumb.Item active title>Laboratory</Breadcrumb.Item>
                 </Breadcrumb>
                 <CardDeck>
-                    <Card>
-                        <Card.Title>
+                    <Card className="flex flex-column align-content-stretch mx-auto">
+                        <Card.Title className="d-flex col">
                             <Link to="/premisebuilder">
                                 <h1 className="spanish-gray center Aladin">Premise Builder</h1>
                             </Link>
                         </Card.Title>
-                        <Card.Body>
+                        <Card.Body className="d-flex col">
                             {/* <Card.Text className="spanish-gray center">
                                 This tool helps you build compelling story premises
                             </Card.Text> */}
@@ -49,31 +49,31 @@ export default function Laboratory(props) {
                             </Card.Text> */}
                         </Card.Body>
                     </Card>
-                    <Card>
-                        <Card.Title>
+                    <Card className="flex flex-column align-content-stretch">
+                        <Card.Title className="d-flex col">
                             <Link to="/scenebuilder">
                                 <h1 className="spanish-gray center Aladin">Character Creator</h1>
                             </Link>            
                         </Card.Title>
-                        <Card.Body>
+                        <Card.Body className="d-flex col">
                             {/* <Card.Text className="spanish-gray center">
                                 This tools help you develop your characters
                             </Card.Text> */}
                             <Link to="/scenebuilder">
-                                <Card.Img variant="bottom" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/CharacterCreatorCardImg.png" />
+                                <Card.Img variant="bottom" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/CharacterCreatorCardImg1.png" />
                             </Link>
                             {/* <Card.Text className="spanish-gray center">
                                 Go here once you have your premise established
                             </Card.Text> */}
                         </Card.Body>
                     </Card>
-                    <Card>
-                        <Card.Title>
+                    <Card className="flex flex-column align-content-stretch">
+                        <Card.Title className="d-flex col">
                             <Link to="/scenebuilder">
                                 <h1 className="spanish-gray center Aladin">Scene Builder</h1>
                             </Link>            
                         </Card.Title>
-                        <Card.Body>
+                        <Card.Body className="d-flex col">
                             {/* <Card.Text className="spanish-gray center">
                                 This tools help you develop your premise into a complete story
                             </Card.Text> */}

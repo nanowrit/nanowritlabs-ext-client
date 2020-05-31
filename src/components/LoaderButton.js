@@ -12,6 +12,7 @@ export default function LoaderButton({
   return (
     <Button
       className={`LoaderButton ${className}`}
+      variant="secondary"
       disabled={disabled || isLoading}
       {...props}
     >

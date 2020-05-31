@@ -66,6 +66,11 @@ Amplify.configure({
         name: "premises",
         endpoint: config.apiPremiseBuilder.URL,
         region: config.apiPremiseBuilder.REGION
+      },
+      {
+        name: "patreon",
+        endpoint: config.apiPatreonOAuth.URL,
+        region: config.apiPatreonOAuth.REGION
       }
     ]
   }

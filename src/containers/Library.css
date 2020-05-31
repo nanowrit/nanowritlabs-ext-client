@@ -10,7 +10,7 @@
     color: #999;
 }
 .Library div {
-    padding-top: 20px;
+    margin-bottom: 20px;
 }
 .Library div a:first-child {
     margin: auto;
@@ -88,11 +88,4 @@
 #stories-tabs .list-group-item {
     background-color: rgb(13, 19, 7);
     background-image: none;
-}
-
-.Elephant p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: larger;
-    text-align: justify;
-    color: rgb(13, 19, 7);
 }

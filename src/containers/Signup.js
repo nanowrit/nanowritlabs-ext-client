@@ -84,7 +84,7 @@ export default function Signup(props) {
             onChange={handleFieldChange}
             value={fields.confirmationCode}
           />
-          <Form.Text>Please check your email for the code.</Form.Text>
+          <Form.Text className="spanish-gray">Please check your email for the code.</Form.Text>
         </FormGroup>
         <LoaderButton
           block
@@ -102,11 +102,13 @@ export default function Signup(props) {
   function renderForm() {
     return (
       <div>
+        <h4 className="spanish-gray center">Sign up with: </h4>
+        <br />
         <FacebookButton onLogin={handleFbLogin} />
         <hr />
         <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
-          <FormLabel>Email</FormLabel>
+          <FormLabel className="spanish-gray">Email</FormLabel>
           <FormControl
             autoFocus
             type="email"
@@ -115,7 +117,7 @@ export default function Signup(props) {
           />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
-          <FormLabel>Password</FormLabel>
+          <FormLabel className="spanish-gray">Password</FormLabel>
           <FormControl
             type="password"
             value={fields.password}
@@ -123,17 +125,19 @@ export default function Signup(props) {
           />
         </FormGroup>
         <FormGroup controlId="confirmPassword" bsSize="large">
-          <FormLabel>Confirm Password</FormLabel>
+          <FormLabel className="spanish-gray">Confirm Password</FormLabel>
           <FormControl
             type="password"
             onChange={handleFieldChange}
             value={fields.confirmPassword}
           />
         </FormGroup>
+        <br />
         <LoaderButton
           block
+          className="dark-goldenrod"
           type="submit"
-          bsSize="large"
+          size="lg"
           isLoading={isLoading}
           disabled={!validateForm()}
         >

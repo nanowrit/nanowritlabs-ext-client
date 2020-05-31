@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import LoaderButton from "./LoaderButton";
+import { FaFacebook } from "react-icons/fa";
 
 function waitForInit() {
   return new Promise((res, rej) => {
@@ -73,13 +74,13 @@ export default class FacebookButton extends Component {
   render() {
     return (
       <LoaderButton
-        bsSize="large"
-        bsStyle="primary"
+        size="lg"
+        variant="primary"
         className="FacebookButton"
         onClick={this.handleClick}
         disabled={this.state.isLoading}
       >
-        Login with Facebook
+        <FaFacebook/>acebook
       </LoaderButton>
     );
   }

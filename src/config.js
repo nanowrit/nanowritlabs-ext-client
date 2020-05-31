@@ -16,6 +16,10 @@ const dev = {
     REGION: "us-west-2",
     URL: "https://6uupf7cgde.execute-api.us-west-2.amazonaws.com/dev"
   },
+  apiPatreonOAuth: {
+    REGION: "us-west-2",
+    URL: "efbfbdeb"
+  },
   cognito: {
     REGION: "us-west-2",
     USER_POOL_ID: "us-west-2_QokOSpn4n",
@@ -23,7 +27,8 @@ const dev = {
     IDENTITY_POOL_ID: "us-west-2:3aef7dda-25d5-4d13-b007-1aedb9bc819b"
   },
   social: {
-    FB: "891073078019739"
+    FB: "891073078019739",
+    Patreon: ""
   },
   instructions: {
     instructionsUsersname: "SBInstructionsAdmin@nanowritlabs.com",

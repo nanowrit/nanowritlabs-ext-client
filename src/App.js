@@ -50,7 +50,6 @@ function App(props) {
     }
     catch(e) {
       if (e !== 'No current user') {
-        console.log(e);
         onError(e);
       }
     }
@@ -102,11 +101,14 @@ function App(props) {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        <div className="mainBody">
         <Routes appProps={{ 
           isAuthenticated, userHasAuthenticated, 
           isAdmin, userConfirmedAdmin
         }} />
+        </div>
         <Footer />
+        {/* <Navbar fixed="bottom">nanowritlabs 2020</Navbar> */}
       </div>
     )
   );

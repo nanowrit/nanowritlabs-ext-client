@@ -20,13 +20,6 @@ export default function Lander(props) {
                     <Link to="/library">
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/LibraryCardImg.png" />
                     </Link>
-                    <Link to="/library">
-                    <Card.Body>
-                        <Card.Text className="spanish-gray center">
-                            Go here for access to research and specimen collection
-                        </Card.Text>
-                    </Card.Body>
-                    </Link>
                 </Card>
                 <Card>
                     <Card.Title>
@@ -36,13 +29,6 @@ export default function Lander(props) {
                     </Card.Title>
                     <Link to="/laboratory">
                         <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/LaboratoryCardImg.png" />
-                    </Link>
-                    <Link to="/laboratory">
-                        <Card.Body>
-                            <Card.Text className="spanish-gray center">
-                                Go here for access to the tools of the trade
-                            </Card.Text>
-                        </Card.Body>
                     </Link>
                 </Card>
             </CardDeck>

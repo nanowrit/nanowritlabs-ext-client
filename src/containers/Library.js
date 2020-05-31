@@ -1,48 +1,55 @@
 import React from "react";
-import { Image, Container, Row, Col, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Breadcrumb, CardColumns, Card, CardGroup, CardDeck } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Library.css";
 
 export default function Library(props) {
     return (
         <div className="Library">
-            <Container fluid>
-                <Row>
-                    <Col xsHidden smHidden md={3}>
-                        <Image className="art" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/Weird_Tales_November_1941.png" />
-                    </Col>
-                    <Col xsPull={6} mdPush={3} lgPush={3}>
-                    <h1>The Library</h1>
-                    <ListGroup className="library-list">
-                        <Link to="/classicStories">
-                            <ListGroupItem>
-                                <h2>Classic Pulp Fiction Stories</h2>
-                            </ListGroupItem>
-                        </Link>
-                        <Link to="/modern-stories">
-                            <ListGroupItem>
-                                <h2>Modern Pulp Fiction Stories</h2>
-                            </ListGroupItem>
-                        </Link>
-                        <Link to="/">
-                            <ListGroupItem>
-                                <h2>Pulp Fiction Blueprints</h2>
-                            </ListGroupItem>
-                        </Link>
-                        <Link to="/">
-                            <ListGroupItem>
-                                <h2>Classic Pulp Fiction Art</h2>
-                            </ListGroupItem>
-                        </Link>
-                        <Link to="/">
-                            <ListGroupItem>
-                                <h2>Story Seeds</h2>
-                            </ListGroupItem>
-                        </Link>
-                    </ListGroup>
-                    </Col>
-                </Row>
-            </Container>
+            <Breadcrumb>
+                <Breadcrumb.Item as="div">
+                    <Link to="/">Home</Link>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item active as="div">
+                    Library
+                </Breadcrumb.Item>
+            </Breadcrumb>
+            <CardDeck>
+                <Card>
+                    <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/ClassicStoriesCardImg.png" />
+                    <Link to="/classicStories">
+                        <Card.ImgOverlay>
+                            <h1 className="spanish-gray center Aladin">Classic Pulp Fiction Stories</h1>
+                        </Card.ImgOverlay>
+                    </Link>
+                </Card>
+                <Card>
+                    <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/CharacterCreatorCardImg.png" />
+                    <Link to="/modernStories">
+                        <Card.ImgOverlay>
+                            <h1 className="spanish-gray center Aladin">Modern Pulp Fiction Stories</h1>
+                        </Card.ImgOverlay>
+                    </Link>
+                </Card>
+            </CardDeck>
+            <CardDeck>
+                <Card>
+                    <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/TheCraftCardImg.png" />
+                    <Link to="/thecraft">
+                    <Card.ImgOverlay>
+                        <h1 className="spanish-gray center Aladin">The Craft</h1>
+                    </Card.ImgOverlay>
+                    </Link>
+                </Card>
+                <Card>
+                    <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/StorySeedsCardImg.png" />
+                    <Link to="/storyseeds">
+                    <Card.ImgOverlay>
+                        <h1 className="spanish-gray center Aladin">Story Seeds</h1>
+                    </Card.ImgOverlay>
+                    </Link>
+                </Card>
+            </CardDeck>
         </div>
     );
 }

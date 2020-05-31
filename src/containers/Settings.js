@@ -37,25 +37,49 @@ export default function Settings(props) {
   //     // setIsLoading(false);
   //   }
   // }
+
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+
+  //   setIsLoading(true);
+
+  //   try {
+  //     fetch("www.patreon.com/oauth2/authorize?response_type=code&client_id=vayh2G_7h1Qlxh0epJx3fr-P39UQtAE11DDC2hfKVU4Qm2HcaNfeEBHsuKKOwUff&redirect_uri=http://localhost:3000&scope=<optional list of requested scopes>&state=<optional string>")
+  //     // await Auth.signIn(fields.email, fields.password);
+  //     // props.userHasAuthenticated(true);
+  //   } catch (e) {
+  //     alert(e.message);
+  //     setIsLoading(false);
+  //   }
+  // }
   
   return (
     <div className="Settings">
       <LinkContainer to="/settings/email">
-          <LoaderButton
-            block
-            bsSize="large"
-          >
-            Change Email
-          </LoaderButton>
-        </LinkContainer>
-        <LinkContainer to="/settings/password">
-          <LoaderButton
-            block
-            bsSize="large"
-          >
-            Change Password
-          </LoaderButton>
-        </LinkContainer>
+        <LoaderButton
+          block
+          size="lg"
+        >
+          Change Email
+        </LoaderButton>
+      </LinkContainer>
+      <LinkContainer to="/settings/password">
+        <LoaderButton
+          block
+          size="lg"
+        >
+          Change Password
+        </LoaderButton>
+      </LinkContainer>
+      {/* <a  href="https://www.patreon.com/oauth2/authorize?response_type=code&client_id=vayh2G_7h1Qlxh0epJx3fr-P39UQtAE11DDC2hfKVU4Qm2HcaNfeEBHsuKKOwUff&redirect_uri=http://localhost:3000/patreon-connect&scope=users+my-campaign">
+        <LoaderButton
+          block
+          size="lg"
+          variant="danger"
+        >
+          Connect with Patreon
+        </LoaderButton>
+      </a> */}
       {/* <StripeProvider apiKey={config.STRIPE_KEY}>
         <Elements>
           <BillingForm
