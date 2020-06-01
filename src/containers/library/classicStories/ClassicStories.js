@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { API } from "aws-amplify";
 import "../../Lander.css";
-import { ListGroupItem } from "react-bootstrap";
-// import { Link } from "react-router-dom";
+import { ListGroupItem, Breadcrumb } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { onError } from "../../../libs/errorLib";
 import "../../Library.css";
 
 export default function Stories(props) {
+    // eslint-disable-next-line
     const [authors, setAuthors] = useState([{}]);
     const [classicstorys, setClassicstorys] = useState([{}]);
     const [isLoading, setIsLoading] = useState(true);
@@ -71,6 +72,7 @@ export default function Stories(props) {
         )
     }
 
+    // eslint-disable-next-line
     function renderClassicAuthorsList(authors) {
         return [{}].concat(authors)
             .sort(function (a, b) {
@@ -102,6 +104,15 @@ export default function Stories(props) {
 
     return (
         <div className="Library">
+            <Breadcrumb>
+            <Breadcrumb.Item as="div">
+                <Link to="/">Home</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item as="div">
+                <Link to="/Library">Library</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active as="div">Classic Stories</Breadcrumb.Item>
+            </Breadcrumb>
             <h1>Classic Pulp Fiction Stories</h1>
             <header>By Original Print Date</header>
             {!isLoading && renderClassicStoriesList(classicstorys)}

@@ -19,7 +19,7 @@ import NewRecommitment from "./containers/recommitments/NewRecommitment";
 import Climax from "./containers/climaxs/Climaxs";
 import NewClimax from "./containers/climaxs/NewClimax";
 import Settings from "./containers/Settings";
-import PatreonConnect from "./containers/PatreonConnect";
+// import PatreonConnect from "./containers/PatreonConnect";
 import ChangeEmail from "./containers/ChangeEmail";
 import ResetPassword from "./containers/ResetPassword";
 import ChangePassword from "./containers/ChangePassword";
@@ -88,7 +88,7 @@ export default function Routes({ appProps }) {
       <AuthenticatedRoute path="/climaxs/:id" exact component={Climax} appProps={appProps} />
 
       {/* API Redirect Routes */}
-      <AuthenticatedRoute path="/patreon-connect" exact component={PatreonConnect} appProps={appProps} />
+      {/* <AuthenticatedRoute path="/patreon-connect" exact component={PatreonConnect} appProps={appProps} /> */}
       {/* <AuthenticatedRoute path="/patreon-connect/:code" exact component={PatreonCode} appProps={appProps} /> */}
 
       {/* Utility Routes */}
