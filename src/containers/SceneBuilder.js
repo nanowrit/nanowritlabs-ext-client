@@ -30,18 +30,113 @@ export default function SceneBuilder(props) {
         const beginnings = await loadBeginnings();
         setBeginnings(beginnings);
         setProgress(16.67);
+      } catch (e) {
+        alert(e);
+      }
+  
+      setIsLoading(false);
+    }
+
+    onLoad();
+  }, [props.isAuthenticated]);
+
+  useEffect(() => {
+    async function onLoad() {
+      if (!props.isAuthenticated) {
+        return;
+      }
+
+      setProgress(0);
+  
+      try {
         const mirrors = await loadMirrors();
         setMirrors(mirrors);
         setProgress(33.33);
+      } catch (e) {
+        alert(e);
+      }
+  
+      setIsLoading(false);
+    }
+
+    onLoad();
+  }, [props.isAuthenticated]);
+
+  useEffect(() => {
+    async function onLoad() {
+      if (!props.isAuthenticated) {
+        return;
+      }
+
+      setProgress(0);
+  
+      try {
         const darknesss = await loadDarknesss();
         setDarknesss(darknesss);
         setProgress(50);
+      } catch (e) {
+        alert(e);
+      }
+  
+      setIsLoading(false);
+    }
+
+    onLoad();
+  }, [props.isAuthenticated]);
+
+  useEffect(() => {
+    async function onLoad() {
+      if (!props.isAuthenticated) {
+        return;
+      }
+
+      setProgress(0);
+  
+      try {
         const fillers = await loadFillers();
         setFillers(fillers);
         setProgress(66.67);
+      } catch (e) {
+        alert(e);
+      }
+  
+      setIsLoading(false);
+    }
+
+    onLoad();
+  }, [props.isAuthenticated]);
+
+  useEffect(() => {
+    async function onLoad() {
+      if (!props.isAuthenticated) {
+        return;
+      }
+
+      setProgress(0);
+  
+      try {
         const recommitments = await loadRecommitments();
         setRecommitments(recommitments);
-        setProgress(83.35)
+        setProgress(83.35);
+      } catch (e) {
+        alert(e);
+      }
+  
+      setIsLoading(false);
+    }
+
+    onLoad();
+  }, [props.isAuthenticated]);
+
+  useEffect(() => {
+    async function onLoad() {
+      if (!props.isAuthenticated) {
+        return;
+      }
+
+      setProgress(0);
+  
+      try {
         const climaxs = await loadClimaxs();
         setClimaxs(climaxs);
         setProgress(99);
@@ -247,9 +342,12 @@ export default function SceneBuilder(props) {
         fillers.length > 0 ? (
           <LinkContainer key="new" to="#">
           <ListGroupItem>
-            <h2 className="Gotu center">
+            <h2 className="Gotu center d-inline-flex">
               Acme Legal Pads
             </h2>
+            <Link to="/fillers/new">
+              <h3 className="d-inline-flex float-right" ><IoIosAdd /></h3>
+            </Link>
           </ListGroupItem>
         </LinkContainer>
         ) : (
@@ -385,26 +483,23 @@ export default function SceneBuilder(props) {
             <ListGroup>
               {!isLoading && renderBeginningsList(beginnings)}
             </ListGroup>
-          <h3>The Mirror Scene</h3>
+          <h3 className="some-headspace">The Mirror Scene</h3>
             <ListGroup>
               {!isLoading && renderMirrorsList(mirrors)}
             </ListGroup>
-          <h3>The Recommitment Scene</h3>
+          <h3 className="some-headspace">The Recommitment Scene</h3>
             <ListGroup>
               {!isLoading && renderRecommitmentList(recommitments)}
             </ListGroup>
-          <h3>The Darkness Scene</h3>
+          <h3 className="some-headspace">The Darkness Scene</h3>
             <ListGroup>
               {!isLoading && renderDarknessList(darknesss)}
             </ListGroup>
-          <h3>The Climax Scene</h3>
+          <h3 className="some-headspace">The Climax Scene</h3>
             <ListGroup>
               {!isLoading && renderClimaxList(climaxs)}
             </ListGroup>
-          <h3 className="d-inline-flex">The Filler Scene</h3>
-            <Link to="/fillers/new">
-              <h3 className="d-inline-flex float-right" ><IoIosAdd /></h3>
-            </Link>
+          <h3 className="some-headspace d-inline-flex">The Filler Scene</h3>
             <ListGroup>
               {!isLoading && renderFillerList(fillers)}
             </ListGroup>

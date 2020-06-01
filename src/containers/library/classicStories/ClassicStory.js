@@ -4,7 +4,9 @@ import { API, Storage } from "aws-amplify";
 // import LoaderButton from "../../../components/LoaderButton";
 import { s3Upload } from "../../../libs/awsLib";
 import config from "../../../config";
+import { GoInfo } from "react-icons/go";
 import "../../../containers/Notes.css";
+import { Collapse } from "react-bootstrap";
 
 export default function ClassicStory(props) {
     const file = useRef(null);
@@ -15,6 +17,7 @@ export default function ClassicStory(props) {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [open, setOpen] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -51,6 +54,8 @@ export default function ClassicStory(props) {
 
     onLoad();
   }, [props.match.params.id]);
+
+
 
   function validateForm() {
     return authorId.length > 0 || firstAppearedIn.length > 0 || firstAppearedDate.length > 0 || title.length > 0 || content.length > 0;
@@ -136,14 +141,18 @@ export default function ClassicStory(props) {
       {classicstory && (
         <div>
         <div className="center">
-          <h2 className="Aladin">{classicstory.title}</h2>
-            <h4>{classicstory.authorId}</h4>
-              <h5 className="spanish-gray Acme">First Appeared In: {classicstory.firstAppearedIn}</h5>
-              <h5 className="spanish-gray Acme">Date: {classicstory.firstAppearedDate}</h5>
+          <h2 className="Aladin some-headspace">{classicstory.title}</h2>
+            <h5 className="PT-Serif font-italic pale-silver">{classicstory.authorId}      <GoInfo onPointerEnter={() => setOpen(true)} onPointerLeave={() => setOpen(false)} /></h5>
+              <Collapse in={open}>
+                <div id="story-info">
+                  <h6 className="pale-silver Cormorant-Garamond">First Appeared In: {classicstory.firstAppearedIn}</h6>
+                  <h6 className="pale-silver Cormorant-Garamond">Date: {classicstory.firstAppearedDate}</h6>
+                </div>
+              </Collapse>
         </div>
-        <div className="spanish-gray story-content">
+        <div className="pale-silver story-content">
           {classicstory.content.split("\n").map((i, key) => {
-            return <div className="spanish-gray Gotu" key={key}><br />{i}</div>;
+            return <div className="pale-silver Crimson-Text" key={key}><br />{i}</div>;
           })}
         </div>
         </div>

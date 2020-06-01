@@ -48,11 +48,11 @@ export default function Stories(props) {
                 <ListGroupItem>
                     <h3>{classicstory.title}</h3>
                     <header>by {classicstory.authorId}</header>
-                    <p className="content">{classicstory.content.trim().split("\n")[0]}..</p>
+                    <p className="Crimson-Text content">{classicstory.content.trim().split("\n")[0]}..</p>
                 </ListGroupItem>
             </LinkContainer>
         ) : (
-            <div key="new">
+            <div key="new"> 
                 {
                     props.isAdmin ? (
                         <LinkContainer key="new" to="/classicStories/new">
