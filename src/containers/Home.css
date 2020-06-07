@@ -29,9 +29,9 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.Home p {
+/* .Home p {
   color: #666;
-}
+} */
 .Home .listGroupItem {
   padding-top: 25px;
   line-height: 45px;

@@ -45,6 +45,12 @@ export default function Routes({ appProps }) {
       <AppliedRoute path="/" exact component={Lander} appProps={appProps} />
       <AppliedRoute path="/home" exact component={Lander} appProps={appProps} />
 
+      {/* Admin Routes */}
+      {/* <UnauthenticatedRoute path="/cookie-policy" exact component={CookiePolicy} appProps={appProps} />
+      <UnauthenticatedRoute path="/privacy-policy" exact component={PrivacyPolicy} appProps={appProps} />
+      <UnauthenticatedRoute path="/terms-of-use" exact component={TermsOfUse} appProps={appProps} /> */}
+
+
       {/* Login and Settings routes */}
       <UnauthenticatedRoute path="/login" exact component={Login} appProps={appProps} />
       <UnauthenticatedRoute path="/signup" exact component={Signup} appProps={appProps} />

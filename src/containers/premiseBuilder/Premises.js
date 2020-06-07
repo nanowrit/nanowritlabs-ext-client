@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl } from "react-bootstrap";
+import { FormGroup, FormControl, Breadcrumb } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import LoaderButton from "../../components/LoaderButton";
 import { s3Upload } from "../../libs/awsLib";
 import config from "../../config";
@@ -144,6 +145,19 @@ export default function Premise(props) {
   
   return (
     <div className="Notes">
+        <div>
+          <Breadcrumb>
+            <Breadcrumb.Item as="div">
+              <Link to="/">Home</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item as="div">
+              <Link to="/laboratory">Laboratory</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item active as="div">
+              PremiseBuilder
+            </Breadcrumb.Item>
+          </Breadcrumb>
+        </div>
       {premise && (
         <form onSubmit={handleSubmit}>
         <h2>The Premise</h2>
@@ -199,7 +213,7 @@ export default function Premise(props) {
             <FormGroup controlId="dramaticStatement">
               <FormControl
                 value={dramaticStatement}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDramaticStatement(e.target.value)}
               />
             </FormGroup>
@@ -207,7 +221,7 @@ export default function Premise(props) {
             <FormGroup controlId="dramaticQuestion">
               <FormControl
                 value={dramaticQuestion}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setDramaticQuestion(e.target.value)}
               />
             </FormGroup>

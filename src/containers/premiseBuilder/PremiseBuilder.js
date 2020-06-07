@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ListGroup, ListGroupItem, ProgressBar, Breadcrumb } from "react-bootstrap";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
 // import Lander from "./Lander";
 import "../../containers/Home.css";
-import { Link } from "react-router-dom";
 
 export default function PremiseBuilder(props) { 
   const [premises, setPremises] = useState([{}]);
@@ -50,20 +49,29 @@ export default function PremiseBuilder(props) {
       i !== 0 ? (
         <LinkContainer key={premise.id} to={`/premises/${premise.id}`}>
           <ListGroupItem className="listGroupItem">
-            <h3>The Protagonist</h3>
-            {premise.protagonist}
-            <h3>The Situation</h3>
-            {premise.situation}
-            <h3>The Objective</h3>
-            {premise.objective}
-            <h3>The Disaster</h3>
-            {premise.disaster}
-            <h3>The Theme</h3>
-            {premise.theme}
-            <h3>The Dramatic Statement</h3>
-            {premise.dramaticStatement}
-            <h3>The Dramatic Question</h3>
-            {premise.dramaticQuestion}
+            <h2 className="black-olive">Premise {i} </h2>
+            {premise.dramaticStatement && premise.dramaticQuestion 
+              ? <div>
+                  {premise.dramaticStatement} 
+                  {premise.dramaticQuestion} 
+                </div>
+                : <div>
+                  <h3>The Protagonist</h3>
+                  {premise.protagonist}
+                  <h3>The Situation</h3>
+                  {premise.situation}
+                  <h3>The Objective</h3>
+                  {premise.objective}
+                  <h3>The Disaster</h3>
+                  {premise.disaster}
+                  <h3>The Theme</h3>
+                  {premise.theme}
+                  <h3>The Dramatic Statement</h3>
+                  {premise.dramaticStatement}
+                  <h3>The Dramatic Question</h3>
+                  {premise.dramaticQuestion}
+                </div>
+              }
           </ListGroupItem>
         </LinkContainer>
       ) : (

@@ -84,12 +84,20 @@
   color: #C4BBBA;
 }
 
+.black-olive {
+  color: #423E37;
+}
+
 .spanish-gray {
   color: #A39594;
 }
 
-.dark-goldenrod {
+.dark-goldenrod-background {
   background-color: #BA9232;
+}
+
+.dark-goldenrod {
+  color: #BA9232;
 }
 
 .Aladin {
@@ -116,8 +124,32 @@
   font-family: 'PT Serif', serif;
 }
 
+.Abel {
+  font-family: 'Abel', sans-serif;
+}
+
+.Lexend-Tera {
+  font-family: 'Lexend Tera', sans-serif;
+}
+
 .progress-bar {
   background: rgb(131,58,180);
   background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
   height: 30rem;
+}
+
+.termly-cookie-preference-button {
+  background: none; 
+  /* width: 165px;  */
+  /* height: 30px;  */
+  /* border-radius: 3px;  */
+  border: none; 
+  /* font-family: Roboto, Arial;  */
+  /* font-size: 10px;  */
+  /* color: #5f7d9c;  */
+  /* font-weight: 600;  */
+  box-sizing: border-box; 
+  cursor: pointer; 
+  padding: 0; 
+  outline: none;
 }

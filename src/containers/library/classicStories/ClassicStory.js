@@ -156,8 +156,8 @@ export default function ClassicStory(props) {
             <Breadcrumb.Item as="div">
               <Link to="/classicStories">Classic Stories</Link>
             </Breadcrumb.Item>
-            <Breadcrumb.Item active>{classicstory.title}</Breadcrumb.Item>
-            <Breadcrumb.Item active>
+            <Breadcrumb.Item active>{`${classicstory.title}     `}
+            {/* </Breadcrumb.Item> */}
               <GoInfo className="pale-silver" 
                 onPointerEnter={() => setOpen(true)} 
                 onPointerLeave={() => setOpen(false)} 
