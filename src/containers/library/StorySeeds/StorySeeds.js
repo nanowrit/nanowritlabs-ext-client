@@ -44,7 +44,7 @@ export default function StorySeeds(props) {
         i !== 0 ? (
             <LinkContainer 
                 key={storySeed.id} 
-                to={`/storyseeds/${storySeed.storySeedId}`}
+                to={`/storyseeds/${storySeed.id}`}
             >
                 <ListGroupItem>
                     <h3>{storySeed.title}</h3>

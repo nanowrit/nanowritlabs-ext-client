@@ -17,10 +17,8 @@ export default function StorySeed(props) {
     const [firstAppearedDate, setFirstAppearedDate] = useState("");
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    // eslint-disable-next-line
     const [isLoading, setIsLoading] = useState(false);
     const [open, setOpen] = useState(true);
-    // eslint-disable-next-line
     const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -57,10 +55,8 @@ export default function StorySeed(props) {
     onLoad();
   }, [props.match.params.id, props.isAdmin]);
 
-
-  // eslint-disable-next-line
   function validateForm() {
-    return authorId.length > 0 || firstAppearedIn.length > 0 || firstAppearedDate.length > 0 || title.length > 0 || content.length > 0;
+    return title.length > 0 || content.length > 0;
   }
   
   // function formatFilename(str) {
@@ -112,12 +108,10 @@ export default function StorySeed(props) {
     }
   }
   
-  // eslint-disable-next-line
   function deleteStorySeed() {
     return API.del("storySeeds", `/storyseeds/${props.match.params.id}`);
   }
   
-  // eslint-disable-next-line
   async function handleDelete(event) {
     event.preventDefault();
   
@@ -167,34 +161,39 @@ export default function StorySeed(props) {
                     props.isAdmin ? (
                         <form onSubmit={handleSubmit}>
                             <h2>{storySeed.title}</h2>
+                            <h4>Author</h4>
                             <FormGroup controlId="authorId">
                                 <FormControl
                                 value={authorId}
-                                as="textarea"
+                                as="input"
                                 onChange={e => setAuthorId(e.target.value)}
                                 />
                             </FormGroup>
+                            <h4>Where was it first published?</h4>
                             <FormGroup controlId="firstAppearedIn">
                                 <FormControl
                                 value={firstAppearedIn}
-                                as="textarea"
+                                as="input"
                                 onChange={e => setFirstAppearedIn(e.target.value)}
                                 />
                             </FormGroup>
+                            <h4>When was it first published?</h4>
                             <FormGroup controlId="firstAppearedDate">
                                 <FormControl
                                 value={firstAppearedDate}
-                                as="textarea"
+                                as="input"
                                 onChange={e => setFirstAppearedDate(e.target.value)}
                                 />
                             </FormGroup>
+                            <h4>Title</h4>
                             <FormGroup controlId="title">
                                 <FormControl
                                 value={title}
-                                as="textarea"
+                                as="input"
                                 onChange={e => setTitle(e.target.value)}
                                 />
                             </FormGroup>
+                            <h4>The Content</h4>
                             <FormGroup controlId="content">
                                 <FormControl
                                 value={content}

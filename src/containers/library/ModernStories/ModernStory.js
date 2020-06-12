@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { Breadcrumb } from "react-bootstrap";
+import { Breadcrumb, FormGroup, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import LoaderButton from "../../../components/LoaderButton";
+import LoaderButton from "../../../components/LoaderButton";
 import { s3Upload } from "../../../libs/awsLib";
 import config from "../../../config";
 import { GoInfo } from "react-icons/go";
@@ -17,10 +17,8 @@ export default function ModernStory(props) {
     const [firstAppearedDate, setFirstAppearedDate] = useState("");
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    // eslint-disable-next-line
     const [isLoading, setIsLoading] = useState(false);
     const [open, setOpen] = useState(true);
-    // eslint-disable-next-line
     const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -56,10 +54,9 @@ export default function ModernStory(props) {
     }
 
     onLoad();
-  }, [props.match.params.id]);
+  }, [props.match.params.id, props.isAdmin]);
 
 
-  // eslint-disable-next-line
   function validateForm() {
     return authorId.length > 0 || firstAppearedIn.length > 0 || firstAppearedDate.length > 0 || title.length > 0 || content.length > 0;
   }
@@ -78,7 +75,6 @@ export default function ModernStory(props) {
     });
   }
   
-  // eslint-disable-next-line
   async function handleSubmit(event) {
     let attachment;
   
@@ -114,12 +110,10 @@ export default function ModernStory(props) {
     }
   }
   
-  // eslint-disable-next-line
   function deleteModernStory() {
     return API.del("modernStories", `/modernstorys/${props.match.params.id}`);
   }
   
-  // eslint-disable-next-line
   async function handleDelete(event) {
     event.preventDefault();
   
@@ -159,99 +153,111 @@ export default function ModernStory(props) {
             <Breadcrumb.Item active>{`${modernstory.title}     `}
             {/* </Breadcrumb.Item> */}
               <GoInfo className="pale-silver" 
-                onPointerEnter={() => setOpen(true)} 
-                onPointerLeave={() => setOpen(false)} 
+                onClick={() => setOpen(!open)}
+                // onPointerEnter={() => setOpen(true)} 
+                // onPointerLeave={() => setOpen(false)} 
               />
             </Breadcrumb.Item>
           </Breadcrumb>
-        <div className="center">
-          {/* <h2 className="Aladin some-headspace">{modernstory.title}</h2> */}
-              <Collapse in={open}>
-                <div id="story-info">
-                  <h3 className="pale-silver Aladin">{modernstory.title}</h3>
-                  <h5 className="PT-Serif font-italic pale-silver">by {modernstory.authorId}</h5>
-                  <h6 className="pale-silver Cormorant-Garamond">First Appeared In: {modernstory.firstAppearedIn}</h6>
-                  <h6 className="pale-silver Cormorant-Garamond">Date: {modernstory.firstAppearedDate}</h6>
+          {
+            props.isAdmin ? (
+              <form onSubmit={handleSubmit}>
+                <h2>{modernstory.title}</h2>
+                <h4>Author</h4>
+                  <FormGroup controlId="authorId">
+                    <FormControl
+                      value={authorId}
+                      as="input"
+                      onChange={e => setAuthorId(e.target.value)}
+                    />
+                  </FormGroup>
+                  <h4>Where was it first published?</h4>
+                  <FormGroup controlId="firstAppearedIn">
+                    <FormControl
+                      value={firstAppearedIn}
+                      as="input"
+                      onChange={e => setFirstAppearedIn(e.target.value)}
+                    />
+                  </FormGroup>
+                  <h4>When was it first published?</h4>
+                  <FormGroup controlId="firstAppearedDate">
+                    <FormControl
+                      value={firstAppearedDate}
+                      as="input"
+                      onChange={e => setFirstAppearedDate(e.target.value)}
+                    />
+                  </FormGroup>
+                  <h4>Title</h4>
+                  <FormGroup controlId="title">
+                    <FormControl
+                      value={title}
+                      as="input"
+                      onChange={e => setTitle(e.target.value)}
+                    />
+                  </FormGroup>
+                  <h4>The Content</h4>
+                  <FormGroup controlId="content">
+                    <FormControl
+                      value={content}
+                      as="textarea"
+                      onChange={e => setContent(e.target.value)}
+                    />
+                  </FormGroup>
+                  {/* {beginning.attachment && (
+                    <FormGroup>
+                      <ControlLabel>Attachment</ControlLabel>
+                      <FormControl.Static>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={beginning.attachmentURL}
+                        >
+                          {formatFilename(beginning.attachment)}
+                        </a>
+                      </FormControl.Static>
+                    </FormGroup>
+                  )} */}
+                  <LoaderButton
+                    block
+                    type="submit"
+                    bsSize="large"
+                    bsStyle="primary"
+                    isLoading={isLoading}
+                    disabled={!validateForm()}
+                  >
+                    Save
+                  </LoaderButton>
+                  <LoaderButton
+                    block
+                    bsSize="large"
+                    bsStyle="danger"
+                    onClick={handleDelete}
+                    isLoading={isDeleting}
+                  >
+                    Delete
+                  </LoaderButton>
+              </form>
+            ) : (
+              <div>
+                <div className="center">
+                      <Collapse in={open}>
+                        <div id="story-info">
+                          <h3 className="pale-silver Aladin">{modernstory.title}</h3>
+                          <h5 className="PT-Serif font-italic pale-silver">by {modernstory.authorId}</h5>
+                          <h6 className="pale-silver Cormorant-Garamond">First Appeared In: {modernstory.firstAppearedIn}</h6>
+                          <h6 className="pale-silver Cormorant-Garamond">Date: {modernstory.firstAppearedDate}</h6>
+                        </div>
+                      </Collapse>
                 </div>
-              </Collapse>
+                <div className="pale-silver story-content">
+                  {modernstory.content.split("\n").map((i, key) => {
+                    return <div className="pale-silver Crimson-Text" key={key}><br />{i}</div>;
+                  })}
+                </div>
+              </div>
+            )
+          }
         </div>
-        <div className="pale-silver story-content">
-          {modernstory.content.split("\n").map((i, key) => {
-            return <div className="pale-silver Crimson-Text" key={key}><br />{i}</div>;
-          })}
-        </div>
-        </div>
-        // <form onSubmit={handleSubmit}>
-        //   <h2>{modernstory.title}</h2>
-        //       <FormGroup controlId="authorId">
-        //         <FormControl
-        //           value={authorId}
-        //           componentClass="textarea"
-        //           onChange={e => setAuthorId(e.target.value)}
-        //         />
-        //       </FormGroup>
-        //       <FormGroup controlId="firstAppearedIn">
-        //         <FormControl
-        //           value={firstAppearedIn}
-        //           componentClass="textarea"
-        //           onChange={e => setFirstAppearedIn(e.target.value)}
-        //         />
-        //       </FormGroup>
-        //       <FormGroup controlId="firstAppearedDate">
-        //         <FormControl
-        //           value={firstAppearedDate}
-        //           componentClass="textarea"
-        //           onChange={e => setFirstAppearedDate(e.target.value)}
-        //         />
-        //       </FormGroup>
-        //       <FormGroup controlId="title">
-        //         <FormControl
-        //           value={title}
-        //           componentClass="textarea"
-        //           onChange={e => setTitle(e.target.value)}
-        //         />
-        //       </FormGroup>
-        //       <FormGroup controlId="content">
-        //         <FormControl
-        //           value={content}
-        //           componentClass="textarea"
-        //           onChange={e => setContent(e.target.value)}
-        //         />
-        //       </FormGroup>
-          // {/* {beginning.attachment && (
-          //   <FormGroup>
-          //     <ControlLabel>Attachment</ControlLabel>
-          //     <FormControl.Static>
-          //       <a
-          //         target="_blank"
-          //         rel="noopener noreferrer"
-          //         href={beginning.attachmentURL}
-          //       >
-          //         {formatFilename(beginning.attachment)}
-          //       </a>
-          //     </FormControl.Static>
-          //   </FormGroup>
-          // )} */}
-          // <LoaderButton
-          //   block
-          //   type="submit"
-          //   bsSize="large"
-          //   bsStyle="primary"
-          //   isLoading={isLoading}
-          //   disabled={!validateForm()}
-          // >
-          //   Save
-          // </LoaderButton>
-          // <LoaderButton
-          //   block
-          //   bsSize="large"
-          //   bsStyle="danger"
-          //   onClick={handleDelete}
-          //   isLoading={isDeleting}
-          // >
-          //   Delete
-          // </LoaderButton>
-        // </form>
       )}
     </div>
   );
