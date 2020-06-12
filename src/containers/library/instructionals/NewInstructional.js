@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FormGroup, FormControl } from "react-bootstrap";
 import { API } from "aws-amplify";
-import { GoDiffAdded } from "react-icons/go";
-import { Link } from "react-router-dom";
 import LoaderButton from "../../../components/LoaderButton";
 import { onError } from "../../../libs/errorLib";
 // import config from "../../config";
 import "../../../containers/NewNote.css";
 
-export default function NewModernStory(props) {
+export default function NewInstructional(props) {
 //   const file = useRef(null);
   const [authors, setAuthors] = useState([{}]);
   const [authorId, setAuthorId] = useState("");
@@ -46,7 +44,7 @@ export default function NewModernStory(props) {
     return API.get("authors", "/authors");
   }
 
-  function renderAuthorsList(authors) {
+  function renderClassicAuthorsDLList(authors) {
     return [{}].concat(authors)
         .sort(function (a, b) {
             let x = a.lastName;
@@ -83,7 +81,7 @@ export default function NewModernStory(props) {
     //     ? await s3Upload(file.current)
     //     : null;
   
-      await createModernStory(
+      await createInstructional(
         { 
           authorId,
           firstAppearedIn,
@@ -91,38 +89,31 @@ export default function NewModernStory(props) {
           title,
           content
         });
-      props.history.push("/modernStories");
+      props.history.push("/the-craft");
     } catch (e) {
       alert(e);
       setIsLoading(false);
     }
   }
   
-  function createModernStory(modernstory) {
-    return API.post("modernStories", "/modernstorys", {
-      body: modernstory
+  function createInstructional(instructional) {
+    return API.post("instructionals", "/instructionals", {
+      body: instructional
     });
   }
 
   return (
     <div className="NewNote">
       <form onSubmit={handleSubmit}>
-        <h2 className="some-headspace">Add a Modern Pulp Fiction Story</h2>
+        <h2 className="some-headspace">Add a How-To Pulp Fiction Arcticle</h2>
             <FormGroup controlId="authorId">
-              <h4>
-                Who Wrote It?
-                <Link to="/authors/new" target="_blank">
-                  <GoDiffAdded 
-                    className="pale-silver float-right" 
-                  />
-                </Link>
-              </h4>
+              <h4>Who Wrote It?</h4>
               <FormControl
                 value={authorId}
                 as="select"
                 onChange={e => setAuthorId(e.target.value)}
               >
-                {!isLoading && renderAuthorsList(authors)}
+                {!isLoading && renderClassicAuthorsDLList(authors)}
               </FormControl>
             </FormGroup>
             <FormGroup controlId="firstAppearedIn">
@@ -152,7 +143,7 @@ export default function NewModernStory(props) {
               />
             </FormGroup>
             <FormGroup controlId="content">
-              <h4>The Story</h4>
+              <h4>The Content</h4>
               <FormControl
                 value={content}
                 as="textarea"

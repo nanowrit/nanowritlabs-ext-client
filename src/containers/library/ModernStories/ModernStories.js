@@ -10,7 +10,7 @@ import "../../Library.css";
 export default function Stories(props) {
     // eslint-disable-next-line
     const [authors, setAuthors] = useState([{}]);
-    const [classicstorys, setClassicstorys] = useState([{}]);
+    const [modernstorys, setModernStorys] = useState([{}]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -18,10 +18,9 @@ export default function Stories(props) {
 
           try {
             const authors = await loadAuthors();
-            const classicstorys = await loadClassicStories();
+            const modernstorys = await loadModernStories();
             setAuthors(authors);
-            setClassicstorys(classicstorys);
-            console.log(classicstorys);
+            setModernStorys(modernstorys);
 
             } catch (e) {
                 onError(e);
@@ -32,32 +31,32 @@ export default function Stories(props) {
         onLoad();
     }, [props.isAuthenticated, props.isAdmin]);
 
-    function loadClassicStories() {
-        return API.get("classicStories", "/classicstorys");
+    function loadModernStories() {
+        return API.get("modernStories", "/modernstorys");
     }
 
     function loadAuthors() {
         return API.get("authors", "/authors");
     }
 
-    function renderClassicStoriesList(classicstorys) {
-        return [{}].concat(classicstorys).map((classicstory, i) => 
+    function renderModernStoriesList(modernstorys) {
+        return [{}].concat(modernstorys).map((modernstory, i) => 
         i !== 0 ? (
             <LinkContainer 
-                key={classicstory.id} 
-                to={`/classicStories/${classicstory.id}`
+                key={modernstory.id} 
+                to={`/modernStories/${modernstory.id}`
             }>
                 <ListGroupItem>
-                    <h3>{classicstory.title}</h3>
-                    <header>by {classicstory.authorId}</header>
-                    <p className="Crimson-Text content">{classicstory.content.trim().split("\n")[0]}..</p>
+                    <h3>{modernstory.title}</h3>
+                    <header>by {modernstory.authorId}</header>
+                    <p className="Crimson-Text content">{modernstory.content.trim().split("\n")[0]}..</p>
                 </ListGroupItem>
             </LinkContainer>
         ) : (
             <div key="new"> 
                 {
                     props.isAdmin ? (
-                        <LinkContainer key="new" to="/classicStories/new">
+                        <LinkContainer key="new" to="/modernStories/new">
                         <ListGroupItem>
                             <h4>
                                 <b>{"\uFF0B"}</b> Add a story
@@ -74,7 +73,7 @@ export default function Stories(props) {
     }
 
     // eslint-disable-next-line
-    function renderClassicAuthorsList(authors) {
+    function renderAuthorsList(authors) {
         return [{}].concat(authors)
             .sort(function (a, b) {
                 let x = a.lastName;
@@ -112,11 +111,11 @@ export default function Stories(props) {
             <Breadcrumb.Item as="div">
                 <Link to="/Library">Library</Link>
             </Breadcrumb.Item>
-            <Breadcrumb.Item active as="div">Classic Stories</Breadcrumb.Item>
+            <Breadcrumb.Item active as="div">Modern Stories</Breadcrumb.Item>
             </Breadcrumb>
-            <h1>Classic Pulp Fiction Stories</h1>
+            <h1>Modern Pulp Fiction Stories</h1>
             <header>By Original Print Date</header>
-            {!isLoading && renderClassicStoriesList(classicstorys)}
+            {!isLoading && renderModernStoriesList(modernstorys)}
             {/* <header>By Author</header>
             {!isLoading && renderClassicAuthorsList(authors)} */}
         </div>

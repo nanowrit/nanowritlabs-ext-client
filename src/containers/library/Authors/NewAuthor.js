@@ -93,7 +93,7 @@ export default function NewAuthor(props) {
             </FormGroup>
 
             <Container>
-                <Col  md={6}>
+                <Col>
                     <FormGroup controlId="born">
                         <h4>Date of Birth</h4>
                             <FormControl
@@ -103,7 +103,7 @@ export default function NewAuthor(props) {
                             />
                     </FormGroup>
                 </Col>
-                <Col  md={6}>
+                <Col>
                     <FormGroup controlId="died">
                         <h4>Date of Death</h4>
                             <FormControl
@@ -118,8 +118,8 @@ export default function NewAuthor(props) {
         <LoaderButton
           block
           type="submit"
-          bsSize="large"
-          bsStyle="primary"
+          size="large"
+          variant="primary"
           isLoading={isLoading}
           disabled={!validateForm()}
         >

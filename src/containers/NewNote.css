@@ -19,16 +19,26 @@
   font-variant: small-caps;
 }
   
-  .NewNote form textarea {
-    background-color: #E1FCDF;
-    height: 100vh;
-    padding-top: 45px;
-    font-size: 24px;
-    background: repeating-linear-gradient(
-      0,
-      #423E37,
-      #E1FCDF 1px,
-      #E1FCDF 45px,
-      #E1FCDF 45px
-    );
-  }
+.NewNote textarea {
+  background-color: #E1FCDF;
+  height: 100vh;
+  padding-top: 45px;
+  font-size: 24px;
+  background: repeating-linear-gradient(
+    0,
+    #423E37,
+    #E1FCDF 1px,
+    #E1FCDF 45px,
+    #E1FCDF 45px
+  );
+}
+
+.NewNote select#authorId, input#firstAppearedIn, input#firstAppearedDate, input#title, input#firstName, input#middleName, input#lastName, input#born, input#died {
+  height: auto;
+  background: #E1FCDF;
+  padding-top: 0rem;
+}
+
+.NewNote select#authorId {
+  line-height: 5rem;
+}

@@ -33,19 +33,29 @@
     );
   }
 
-  select.form-control, textarea.form-control, input.form-control {
-    height: 100vh;
-    font-size: 24px;
-    padding-top: 45px;
-    line-height: 45px;
-    background: repeating-linear-gradient(
-      0,
-      #423E37,
-      #E1FCDF 1px,
-      #E1FCDF 45px,
-      #E1FCDF 45px
-    );
-  }
+.Notes select.form-control, textarea.form-control, input.form-control {
+  height: 100vh;
+  font-size: 24px;
+  padding-top: 45px;
+  line-height: 45px;
+  background: repeating-linear-gradient(
+    0,
+    #423E37,
+    #E1FCDF 1px,
+    #E1FCDF 45px,
+    #E1FCDF 45px
+  );
+}
+
+.Notes  input#authorId {
+  height: auto;
+  background: #E1FCDF;
+  padding-top: 0rem;
+}
+
+.NewNote input#authorId {
+  line-height: 5rem;
+}
 
 .story-content {
   margin-bottom: 500px;

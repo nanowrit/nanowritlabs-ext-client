@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
-import { FormGroup, FormControl } from "react-bootstrap";
+import { Breadcrumb, Collapse, FormGroup, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { API } from "aws-amplify";
 import { s3Upload } from "../../libs/awsLib";
 import LoaderButton from "../../components/LoaderButton";
+import { GoQuestion } from "react-icons/go";
 // import config from "../../config";
 import "../../containers/NewNote.css";
 
@@ -16,6 +18,14 @@ export default function NewPremise(props) {
   const [theme, setTheme] = useState("");
   const [dramaticStatement, setDramaticStatement] = useState("");
   const [dramaticQuestion, setDramaticQuestion] = useState("");
+  const [openProtagonist, setOpenProtagonist] = useState(true);
+  const [openSituation, setOpenSituation] = useState(true);
+  const [openObjective, setOpenObjective] = useState(true);
+  const [openOpponent, setOpenOpponent] = useState(true);
+  const [openDisaster, setOpenDisaster] = useState(true);
+  const [openTheme, setOpenTheme] = useState(true);
+  const [openDramaticStatement, setOpenDramaticStatement] = useState(true);
+  const [openDramaticQuestion, setOpenDramaticQuestion] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
   function validateForm() {
@@ -71,17 +81,64 @@ export default function NewPremise(props) {
 
   return (
     <div className="NewNote">
+      <Breadcrumb>
+        <Breadcrumb.Item as="div">
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item as="div">
+          <Link to="/Laboratory">Laboratory</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active as="div">PremiseBuilder</Breadcrumb.Item> 
+      </Breadcrumb>
       <form onSubmit={handleSubmit}>
         <h2>The Premise</h2>
-          <h3>Your Protagonist</h3>
+          <h3>
+            Your Protagonist
+            <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenProtagonist(!openProtagonist)} 
+            />
+          </h3>
+          <Collapse className="Lexend-Tera" in={openProtagonist}>
+            <div className="pale-silver">
+              <p className="pale-silver">
+
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+            </div>
+          </Collapse>
             <FormGroup controlId="protagonist">
               <FormControl
                 value={protagonist}
-                type="text"
+                as="textarea"
                 onChange={e => setProtagonist(e.target.value)}
               />
             </FormGroup>
-          <h3>The Situation</h3>
+          <h3>
+            The Situation
+            <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenSituation(!openSituation)} 
+            />
+          </h3>
+          <Collapse className="Lexend-Tera" in={openSituation}>
+            <div className="pale-silver">
+              <p className="pale-silver">
+
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+            </div>
+          </Collapse>
             <FormGroup controlId="situation">
               <FormControl
                 value={situation}
@@ -89,23 +146,80 @@ export default function NewPremise(props) {
                 onChange={e => setSituation(e.target.value)}
               />
             </FormGroup>
-          <h3>The Protagonist's Objective</h3>
+          <h3>
+            The Protagonist's Objective
+            <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenObjective(!openObjective)} 
+            />
+          </h3>
+          <Collapse className="Lexend-Tera" in={openObjective}>
+            <div className="pale-silver">
+              <p className="pale-silver">
+
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+            </div>
+          </Collapse>
             <FormGroup controlId="objective">
               <FormControl
                 value={objective}
-                type="text"
+                as="textarea"
                 onChange={e => setObjective(e.target.value)}
               />
             </FormGroup>
-          <h3>The Protagonist's Opponent</h3>
+          <h3>
+            The Protagonist's Opponent
+            <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenOpponent(!openOpponent)} 
+            />
+          </h3>
+          <Collapse className="Lexend-Tera" in={openOpponent}>
+            <div className="pale-silver">
+              <p className="pale-silver">
+
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+            </div>
+          </Collapse>
             <FormGroup controlId="opponent">
               <FormControl
                 value={opponent}
-                type="text"
+                as="textarea"
                 onChange={e => setOpponent(e.target.value)}
               />
             </FormGroup>
-          <h3>The Disaster that Looms over our Hero</h3>
+          <h3>
+            The Disaster that Looms over our Hero
+            <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenDisaster(!openDisaster)} 
+            />
+          </h3>
+          <Collapse className="Lexend-Tera" in={openOpponent}>
+            <div className="pale-silver">
+              <p className="pale-silver">
+
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+            </div>
+          </Collapse>
             <FormGroup controlId="disaster">
               <FormControl
                 value={disaster}
@@ -113,7 +227,26 @@ export default function NewPremise(props) {
                 onChange={e => setDisaster(e.target.value)}
               />
             </FormGroup>
-          <h3>The Theme of your Story</h3>
+          <h3>
+            The Theme of your Story
+            <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenTheme(!openTheme)} 
+            />
+          </h3>
+          <Collapse className="Lexend-Tera" in={openOpponent}>
+            <div className="pale-silver">
+              <p className="pale-silver">
+
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+            </div>
+          </Collapse>
             <FormGroup controlId="theme">
               <FormControl
                 value={theme}
@@ -121,7 +254,26 @@ export default function NewPremise(props) {
                 onChange={e => setTheme(e.target.value)}
               />
             </FormGroup>
-          <h3>The Dramatic Statement</h3>
+          <h3>
+            The Dramatic Statement
+            <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenDramaticStatement(!openDramaticStatement)} 
+            />
+          </h3>
+          <Collapse className="Lexend-Tera" in={openOpponent}>
+            <div className="pale-silver">
+              <p className="pale-silver">
+
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+            </div>
+          </Collapse>
             <FormGroup controlId="dramaticStatement">
               <FormControl
                 value={dramaticStatement}
@@ -129,7 +281,26 @@ export default function NewPremise(props) {
                 onChange={e => setDramaticStatement(e.target.value)}
               />
             </FormGroup>
-          <h3>The Dramatic Question</h3>
+          <h3>
+            The Dramatic Question
+            <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenDramaticQuestion(!openDramaticQuestion)} 
+            />
+          </h3>
+          <Collapse className="Lexend-Tera" in={openOpponent}>
+            <div className="pale-silver">
+              <p className="pale-silver">
+
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+              <p className="pale-silver">
+                
+              </p>
+            </div>
+          </Collapse>
             <FormGroup controlId="dramaticQuestion">
               <FormControl
                 value={dramaticQuestion}

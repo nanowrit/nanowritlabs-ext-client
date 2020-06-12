@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { FormGroup, FormControl } from "react-bootstrap";
 import { API } from "aws-amplify";
 import LoaderButton from "../../../components/LoaderButton";
+import { GoDiffAdded } from "react-icons/go";
+import { Link } from "react-router-dom";
 import { onError } from "../../../libs/errorLib";
 // import config from "../../config";
 import "../../../containers/NewNote.css";
@@ -105,12 +107,19 @@ export default function NewClassicStory(props) {
   return (
     <div className="NewNote">
       <form onSubmit={handleSubmit}>
-        <h2>Add a Classic Pulp Fiction Story</h2>
+        <h2 className="some-headspace">Add a Classic Pulp Fiction Story</h2>
             <FormGroup controlId="authorId">
-              <h4>Who Wrote It?</h4>
+              <h4>
+                Who Wrote It?
+                <Link to="/authors/new" target="_blank">
+                  <GoDiffAdded 
+                    className="pale-silver float-right" 
+                  />
+                </Link>
+              </h4>
               <FormControl
                 value={authorId}
-                componentClass="select"
+                as="select"
                 onChange={e => setAuthorId(e.target.value)}
               >
                 {!isLoading && renderClassicAuthorsDLList(authors)}
@@ -120,12 +129,13 @@ export default function NewClassicStory(props) {
             <h4>Where was it first published?</h4>
               <FormControl
                 value={firstAppearedIn}
-                type="text"
+                as="input"
+                type="string"
                 onChange={e => setFirstAppearedIn(e.target.value)}
               />
             </FormGroup>
             <FormGroup controlId="firstAppearedDate">
-            <h4>When was it first published??</h4>
+            <h4>When was it first published?</h4>
               <FormControl
                 value={firstAppearedDate}
                 type="date"
@@ -136,6 +146,7 @@ export default function NewClassicStory(props) {
               <h4>Title</h4>
               <FormControl
                 value={title}
+                as="input"
                 type="text"
                 onChange={e => setTitle(e.target.value)}
               />
@@ -144,7 +155,7 @@ export default function NewClassicStory(props) {
               <h4>The Story</h4>
               <FormControl
                 value={content}
-                componentClass="textarea"
+                as="textarea"
                 onChange={e => setContent(e.target.value)}
               />
             </FormGroup>
@@ -152,8 +163,8 @@ export default function NewClassicStory(props) {
         <LoaderButton
           block
           type="submit"
-          bsSize="large"
-          bsStyle="primary"
+          size="large"
+          variant="primary"
           isLoading={isLoading}
           disabled={!validateForm()}
         >

@@ -14,7 +14,7 @@ const dev = {
   },
   apiLibrary: {
     REGION: "us-west-2",
-    URL: "https://6uupf7cgde.execute-api.us-west-2.amazonaws.com/dev"
+    URL: "https://3spu9eivs9.execute-api.us-west-2.amazonaws.com/dev"
   },
   apiPatreonOAuth: {
     REGION: "us-west-2",

@@ -58,6 +58,21 @@ Amplify.configure({
         region: config.apiLibrary.REGION
       },
       {
+        name: "modernStories",
+        endpoint: config.apiLibrary.URL,
+        region: config.apiLibrary.REGION
+      },
+      {
+        name: "instructionals",
+        endpoint: config.apiLibrary.URL,
+        region: config.apiLibrary.REGION
+      },
+      {
+        name: "storySeeds",
+        endpoint: config.apiLibrary.URL,
+        region: config.apiLibrary.REGION
+      },
+      {
         name: "authors",
         endpoint: config.apiLibrary.URL,
         region: config.apiLibrary.REGION

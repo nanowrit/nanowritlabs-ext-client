@@ -25,11 +25,26 @@ import ResetPassword from "./containers/ResetPassword";
 import ChangePassword from "./containers/ChangePassword";
 import Library from "./containers/Library";
 import Laboratory from "./containers/Laboratory";
-import ClassicStories from "./containers/library/classicStories/ClassicStories";
-import NewClassicStory from "./containers/library/classicStories/NewClassicStory";
-import ClassicStory from "./containers/library/classicStories/ClassicStory";
-import NewAuthor from "./containers/library/classicStories/NewAuthor";
-import Authors from "./containers/library/classicStories/Authors";
+
+import Instructionals from "./containers/library/instructionals/Instructionals";
+import Instructional from "./containers/library/instructionals/Instructional";
+import NewInstructional from "./containers/library/instructionals/NewInstructional";
+
+import StorySeeds from "./containers/library/StorySeeds/StorySeeds";
+import StorySeed from "./containers/library/StorySeeds/StorySeed";
+import NewStorySeed from "./containers/library/StorySeeds/NewStorySeed";
+
+import ClassicStories from "./containers/library/ClassicStories/ClassicStories";
+import NewClassicStory from "./containers/library/ClassicStories/NewClassicStory";
+import ClassicStory from "./containers/library/ClassicStories/ClassicStory";
+
+import ModernStories from "./containers/library/ModernStories/ModernStories";
+import NewModernStory from "./containers/library/ModernStories/NewModernStory";
+import ModernStory from "./containers/library/ModernStories/ModernStory";
+
+import NewAuthor from "./containers/library/Authors/NewAuthor";
+import Authors from "./containers/library/Authors/Authors";
+
 import TermsOfUse from "./containers/TermsOfUse";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
@@ -68,10 +83,23 @@ export default function Routes({ appProps }) {
 
       {/* Library Routes */}
       <AppliedRoute path="/classicStories" exact component={ClassicStories} appProps={appProps} />
-      <Route path="/classicStories/:id" exact component={ClassicStory} appProps={appProps} />
       <AuthenticatedRoute path="/classicStories/new" exact component={NewClassicStory} appProps={appProps} />
-      <AuthenticatedRoute path="/authors/:id" exact component={Authors} appProps={appProps} />
+      <AppliedRoute path="/classicStories/:id" exact component={ClassicStory} appProps={appProps} />
+
+      <AppliedRoute path="/modernStories" exact component={ModernStories} appProps={appProps} />
+      <AuthenticatedRoute path="/modernStories/new" exact component={NewModernStory} appProps={appProps} />
+      <AppliedRoute path="/modernStories/:id" exact component={ModernStory} appProps={appProps} />
+
+      <AppliedRoute path="/the-craft" exact component={Instructionals} appProps={appProps} />
+      <AppliedRoute path="/the-craft/new" exact component={NewInstructional} appProps={appProps} />
+      <AppliedRoute path="/the-craft/:id" exact component={Instructional} appProps={appProps} />
+
+      <AppliedRoute path="/storyseeds" exact component={StorySeeds} appProps={appProps} />
+      <AuthenticatedRoute path="/storyseeds/new" exact component={NewStorySeed} appProps={appProps} />
+      <AppliedRoute path="/storyseeds/:id" exact component={StorySeed} appProps={appProps} />
+
       <AuthenticatedRoute path="/authors/new" exact component={NewAuthor} appProps={appProps} />
+      <AuthenticatedRoute path="/authors/:id" exact component={Authors} appProps={appProps} />
 
       {/* PremiseBuilder Routes */}
       <AuthenticatedRoute path="/premisebuilder" exact component={PremiseBuilder} appProps={appProps} />

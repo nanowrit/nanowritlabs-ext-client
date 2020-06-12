@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { ListGroup, ListGroupItem, ProgressBar, Breadcrumb } from "react-bootstrap";
-// import { Link } from "react-router-dom";
+import { Collapse, ListGroup, ListGroupItem, ProgressBar, Breadcrumb } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
 import Lander from "./Lander";
 import "./Home.css";
-import { Collapse } from "react-bootstrap";
 import { IoIosAdd } from "react-icons/io";
 import { GoQuestion } from "react-icons/go";
-import { Link } from "react-router-dom";
 
 export default function SceneBuilder(props) { 
   const [mirrors, setMirrors] = useState([{}]);

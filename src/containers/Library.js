@@ -35,7 +35,7 @@ export default function Library(props) {
             <CardDeck>
                 <Card>
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/TheCraftCardImg.png" />
-                    <Link to="/thecraft">
+                    <Link to="/the-craft">
                     <Card.ImgOverlay>
                         <h1 className="spanish-gray center Aladin">The Craft</h1>
                     </Card.ImgOverlay>

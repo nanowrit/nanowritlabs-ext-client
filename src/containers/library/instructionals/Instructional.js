@@ -7,11 +7,11 @@ import { s3Upload } from "../../../libs/awsLib";
 import config from "../../../config";
 import { GoInfo } from "react-icons/go";
 import "../../../containers/Notes.css";
-import { Collapse } from "react-bootstrap";
+import { Collapse } from "react-bootstrap"; 
 
-export default function ClassicStory(props) {
+export default function Instructional(props) {
     const file = useRef(null);
-    const [classicstory, setClassicStory] = useState(null);
+    const [instructional, setInstructional] = useState(null);
     const [authorId, setAuthorId] = useState("");
     const [firstAppearedIn, setFirstAppearedIn] = useState("");
     const [firstAppearedDate, setFirstAppearedDate] = useState("");
@@ -24,23 +24,23 @@ export default function ClassicStory(props) {
     const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    function loadClassicStory() {
-      return API.get("classicStories", `/classicstorys/${props.match.params.id}`);
+    function loadInstructional() {
+      return API.get("instructionals", `/instructionals/${props.match.params.id}`);
     }
 
     async function onLoad() {
       try {
-        const classicstory = await loadClassicStory();
+        const instructional = await loadInstructional();
         const { 
           authorId, 
           firstAppearedIn, 
           firstAppearedDate,
           title, 
           content,
-          attachment } = classicstory;
+          attachment } = instructional;
 
         if (attachment) {
-          classicstory.attachmentURL = await Storage.vault.get(attachment);
+            instructional.attachmentURL = await Storage.vault.get(attachment);
         }
 
         setAuthorId(authorId);
@@ -48,14 +48,14 @@ export default function ClassicStory(props) {
         setFirstAppearedDate(firstAppearedDate);
         setTitle(title);
         setContent(content);
-        setClassicStory(classicstory);
+        setInstructional(instructional);
       } catch (e) {
         alert(e);
       }
     }
 
     onLoad();
-  }, [props.match.params.id]);
+  }, [props.match.params.id, props.isAdmin]);
 
 
   // eslint-disable-next-line
@@ -71,13 +71,12 @@ export default function ClassicStory(props) {
   //   file.current = event.target.files[0];
   // }
   
-  function saveClassicStory(classicstory) {
-    return API.put("classicStories", `/classicstorys/${props.match.params.id}`, {
-      body: classicstory
+  function saveInstructional(instructional) {
+    return API.put("instructionals", `/instructionals/${props.match.params.id}`, {
+      body: instructional
     });
   }
   
-  // eslint-disable-next-line
   async function handleSubmit(event) {
     let attachment;
   
@@ -98,15 +97,15 @@ export default function ClassicStory(props) {
         attachment = await s3Upload(file.current);
       }
   
-      await saveClassicStory({
+      await saveInstructional({
         authorId,
         firstAppearedIn,
         firstAppearedDate,
         title,
         content,
-        attachment: attachment || classicstory.attachment
+        attachment: attachment || instructional.attachment
       });
-      props.history.push("/classicStories");
+      props.history.push("/the-craft");
     } catch (e) {
       alert(e);
       setIsLoading(false);
@@ -114,8 +113,8 @@ export default function ClassicStory(props) {
   }
   
   // eslint-disable-next-line
-  function deleteClassicStory() {
-    return API.del("classicStories", `/classicstorys/${props.match.params.id}`);
+  function deleteInstructional() {
+    return API.del("instructionals", `/instructionals/${props.match.params.id}`);
   }
   
   // eslint-disable-next-line
@@ -123,7 +122,7 @@ export default function ClassicStory(props) {
     event.preventDefault();
   
     const confirmed = window.confirm(
-      "Are you sure you want to delete this classic story?"
+      "Are you sure you want to delete this instructional article?"
     );
   
     if (!confirmed) {
@@ -133,8 +132,8 @@ export default function ClassicStory(props) {
     setIsDeleting(true);
   
     try {
-      await deleteClassicStory();
-      props.history.push("/classicStories");
+      await deleteInstructional();
+      props.history.push("/the-craft");
     } catch (e) {
       alert(e);
       setIsDeleting(false);
@@ -143,29 +142,31 @@ export default function ClassicStory(props) {
   
   return (
     <div className="Notes">
-      {classicstory && (
-        <div>
-          <Breadcrumb>
-          <Breadcrumb.Item as="div">
-                <Link to="/">Home</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item as="div">
-                <Link to="/Library">Library</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item as="div">
-              <Link to="/classicStories">Classic Stories</Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item active>{`${classicstory.title}     `}
-              <GoInfo className="pale-silver" 
-                onPointerEnter={() => setOpen(true)} 
-                onPointerLeave={() => setOpen(false)} 
-              />
-            </Breadcrumb.Item>
-          </Breadcrumb>
-          { 
+      {instructional && (
+          <div>
+            <div>
+                <Breadcrumb>
+                <Breadcrumb.Item as="div">
+                        <Link to="/">Home</Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item as="div">
+                        <Link to="/Library">Library</Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item as="div">
+                        <Link to="/the-craft">The Craft</Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item active>{`${instructional.title}     `}
+                    <GoInfo className="pale-silver" 
+                        onClick={() => setOpen(!open)}
+                        // onPointerEnter={() => setOpen(true)} 
+                        // onPointerLeave={() => setOpen(false)} 
+                    />
+                    </Breadcrumb.Item>
+                </Breadcrumb>
+                { 
                     props.isAdmin ? (
                         <form onSubmit={handleSubmit}>
-                            <h2>{classicstory.title}</h2>
+                            {/* <h2>{instructional.title}</h2> */}
                             <h4>Author</h4>
                             <FormGroup controlId="authorId">
                                 <FormControl
@@ -245,22 +246,22 @@ export default function ClassicStory(props) {
                         <div className="center">
                             <Collapse in={open}>
                                 <div id="story-info">
-                                <h3 className="pale-silver Aladin">{classicstory.title}</h3>
-                                <h5 className="PT-Serif font-italic pale-silver">by {classicstory.authorId}</h5>
-                                <h6 className="pale-silver Cormorant-Garamond">First Appeared In: {classicstory.firstAppearedIn}</h6>
-                                <h6 className="pale-silver Cormorant-Garamond">Date: {classicstory.firstAppearedDate}</h6>
+                                <h3 className="pale-silver Aladin">{instructional.title}</h3>
+                                <h5 className="PT-Serif font-italic pale-silver">by {instructional.authorId}</h5>
+                                <h6 className="pale-silver Cormorant-Garamond">First Appeared In: {instructional.firstAppearedIn}</h6>
+                                <h6 className="pale-silver Cormorant-Garamond">Date: {instructional.firstAppearedDate}</h6>
                                 </div>
                             </Collapse>
                         </div>
                         <div className="pale-silver story-content">
-                        {classicstory.content.split("\n").map((i, key) => {
+                        {instructional.content.split("\n").map((i, key) => {
                             return <div className="pale-silver Crimson-Text" key={key}><br />{i}</div>;
                         })}
                         </div>
                         </div>
                     )
                 }
-          {/* </div> */}
+            </div>
         </div>
       )}
     </div>

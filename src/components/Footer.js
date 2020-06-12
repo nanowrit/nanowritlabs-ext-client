@@ -1,7 +1,6 @@
 import React from "react";
 import Image from 'react-bootstrap/Image'
 import "./Footer.css";
-import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
 export default function Footer({
@@ -15,7 +14,7 @@ export default function Footer({
         <Container fluid className="Abel">
           <Row className="align-items-end">
             <Col md="auto" className="align-self-end">
-              Copyright &copy; 2020 Nanowrit Labs. All Rights Reserved
+              Copyright &copy; 2020 Nanowrit Labs. All Rights Reserved.
             </Col>
             <Col>
               <a href="https://app.termly.io/document/privacy-policy/09a0edbd-6de7-43fe-87e2-c95798b771f5" className="dark-goldenrod" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
