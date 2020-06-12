@@ -79,8 +79,8 @@ export default class ResetPassword extends Component {
   renderRequestCodeForm() {
     return (
       <form onSubmit={this.handleSendCodeClick}>
-        <FormGroup bsSize="large" controlId="email">
-          <FormControl>Email</FormControl>
+        <FormGroup size="large" controlId="email">
+          <h4>Email</h4>
           <FormControl
             autoFocus
             type="email"
@@ -91,8 +91,8 @@ export default class ResetPassword extends Component {
         <LoaderButton
           block
           type="submit"
-          bsSize="large"
-          loadingText="Sending…"
+          size="large"
+          // loadingText="Sending…"
           text="Send Confirmation"
           isLoading={this.state.isSendingCode}
           disabled={!this.validateCodeForm()}

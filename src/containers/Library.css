@@ -71,12 +71,12 @@
     background-image: linear-gradient(to right, rgba(13, 19, 7 ,1), rgba(66, 62, 55, 1));
     z-index: 1;
 }
-.Library .list-group-item:hover {
+/* .Library .list-group-item:hover {
     box-shadow: 15px -25px 35px aliceblue;
     transition: all .5s ease-in-out;
     transform: scale(1.1);
     z-index: 2;
-}
+} */
 .Library .content {
     text-align: justify;
 }
