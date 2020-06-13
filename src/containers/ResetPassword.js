@@ -106,8 +106,8 @@ export default class ResetPassword extends Component {
   renderConfirmationForm() {
     return (
       <form onSubmit={this.handleConfirmClick}>
-        <FormGroup bsSize="large" controlId="code">
-          <FormControl>Confirmation Code</FormControl>
+        <FormGroup size="large" controlId="code">
+          <h4>Confirmation Code</h4>
           <FormControl
             autoFocus
             type="tel"
@@ -120,16 +120,16 @@ export default class ResetPassword extends Component {
           </Form.Text>
         </FormGroup>
         <hr />
-        <FormGroup bsSize="large" controlId="password">
-          <FormControl>New Password</FormControl>
+        <FormGroup size="large" controlId="password">
+          <h4>New Password</h4>
           <FormControl
             type="password"
             value={this.state.password}
             onChange={this.handleChange}
           />
         </FormGroup>
-        <FormGroup bsSize="large" controlId="confirmPassword">
-          <FormControl>Confirm Password</FormControl>
+        <FormGroup size="large" controlId="confirmPassword">
+          <h4>Confirm Password</h4>
           <FormControl
             type="password"
             onChange={this.handleChange}
