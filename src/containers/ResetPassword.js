@@ -110,7 +110,7 @@ export default class ResetPassword extends Component {
           <h4>Confirmation Code</h4>
           <FormControl
             autoFocus
-            type="tel"
+            type="text"
             value={this.state.code}
             onChange={this.handleChange}
           />
