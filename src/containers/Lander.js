@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Lander.css";
 import { Link } from "react-router-dom"; 
 import { Card, CardDeck, Breadcrumb } from "react-bootstrap";
 
 export default function Lander(props) {
+
+    useEffect(() => {
+        const script = document.createElement('script');
+    
+        document.body.appendChild(script);
+    
+        try {
+            window._mNHandle.queue.push(function (){
+                window._mNDetails.loadTag("743382387", "728x90", "743382387");
+            });
+        }
+        catch (error) {}
+    
+        return () => {
+            document.body.removeChild(script);
+        }
+    }, []);
 
     return (
         <div className="align-items-center">

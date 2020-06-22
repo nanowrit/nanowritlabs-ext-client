@@ -107,7 +107,7 @@ export default class ResetPassword extends Component {
     return (
       <form onSubmit={this.handleConfirmClick}>
         <FormGroup size="large" controlId="code">
-          <h4>Confirmation Code</h4>
+          <h4 className="pale-silver">Confirmation Code</h4>
           <FormControl
             autoFocus
             type="text"
