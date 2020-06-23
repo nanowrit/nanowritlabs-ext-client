@@ -48,24 +48,18 @@ export default function Laboratory(props) {
                             </Card.Text> */}
                         </Card.Body>
                     </Card>
-                    <Card className="flex flex-column align-content-stretch">
+                    {/* <Card className="flex flex-column align-content-stretch">
                         <Card.Title className="d-flex col">
                             <Link to="/scenebuilder">
                                 <h1 className="pale-silver center Aladin">Character Creator</h1>
                             </Link>            
                         </Card.Title>
                         <Card.Body className="d-flex col">
-                            {/* <Card.Text className="pale-silver center">
-                                This tools help you develop your characters
-                            </Card.Text> */}
                             <Link to="/scenebuilder">
                                 <Card.Img variant="bottom" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/CharacterCreatorCardImg1.png" />
                             </Link>
-                            {/* <Card.Text className="pale-silver center">
-                                Go here once you have your premise established
-                            </Card.Text> */}
                         </Card.Body>
-                    </Card>
+                    </Card> */}
                     <Card className="flex flex-column align-content-stretch">
                         <Card.Title className="d-flex col">
                             <Link to="/scenebuilder">
