@@ -80,6 +80,18 @@
   padding-bottom: min(10rem);
 }
 
+.full-width {
+  width: 100%;
+}
+
+.zero-padding {
+  padding: 0rem;
+}
+
+.transparent-bg {
+  background-color: transparent;
+}
+
 .pale-silver {
   color: #C4BBBA;
 }

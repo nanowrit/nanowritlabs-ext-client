@@ -48,18 +48,6 @@ export default function Laboratory(props) {
                             </Card.Text> */}
                         </Card.Body>
                     </Card>
-                    {/* <Card className="flex flex-column align-content-stretch">
-                        <Card.Title className="d-flex col">
-                            <Link to="/scenebuilder">
-                                <h1 className="pale-silver center Aladin">Character Creator</h1>
-                            </Link>            
-                        </Card.Title>
-                        <Card.Body className="d-flex col">
-                            <Link to="/scenebuilder">
-                                <Card.Img variant="bottom" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/CharacterCreatorCardImg1.png" />
-                            </Link>
-                        </Card.Body>
-                    </Card> */}
                     <Card className="flex flex-column align-content-stretch">
                         <Card.Title className="d-flex col">
                             <Link to="/scenebuilder">
