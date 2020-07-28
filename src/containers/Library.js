@@ -17,37 +17,41 @@ export default function Library(props) {
             <CardDeck>
                 <Card>
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/ClassicStoriesCardImg.png" />
-                    <Link to="/classicStories">
+                    {/* eslint-disable-next-line */}
+                    <a href="https://workshop.nanowritlabs.com/c/classic-stories/" target="_blank">
                         <Card.ImgOverlay>
                             <h1 className="spanish-gray center Aladin">Classic Pulp Fiction Stories</h1>
                         </Card.ImgOverlay>
-                    </Link>
+                    </a>
                 </Card>
                 <Card>
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/CharacterCreatorCardImg.png" />
-                    <Link to="/modernStories">
+                    {/* eslint-disable-next-line */}
+                    <a href="https://workshop.nanowritlabs.com/c/workshopping/" target="_blank">
                         <Card.ImgOverlay>
-                            <h1 className="spanish-gray center Aladin">Modern Pulp Fiction Stories</h1>
+                            <h1 className="spanish-gray center Aladin">Workshop</h1>
                         </Card.ImgOverlay>
-                    </Link>
+                    </a>
                 </Card>
             </CardDeck>
             <CardDeck>
-                <Card>
+                <Card> 
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/TheCraftCardImg.png" />
-                    <Link to="/the-craft">
+                    {/* eslint-disable-next-line */}
+                    <a href="https://workshop.nanowritlabs.com/c/the-craft/" target="_blank">
                     <Card.ImgOverlay>
                         <h1 className="spanish-gray center Aladin">The Craft</h1>
                     </Card.ImgOverlay>
-                    </Link>
+                    </a>
                 </Card>
                 <Card>
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/StorySeedsCardImg.png" />
-                    <Link to="/storyseeds">
+                    {/* eslint-disable-next-line */}
+                    <a href="https://workshop.nanowritlabs.com/c/the-craft/" target="_blank">
                     <Card.ImgOverlay>
                         <h1 className="spanish-gray center Aladin">Story Seeds</h1>
                     </Card.ImgOverlay>
-                    </Link>
+                    </a>
                 </Card>
             </CardDeck>
         </div>

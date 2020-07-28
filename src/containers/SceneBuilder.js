@@ -61,7 +61,8 @@ export default function SceneBuilder(props) {
         setMirrors(mirrors);
         setProgress(progress => progress + 16.67);
       } catch (e) {
-        alert(e);
+        console.log(e);
+        // alert(e);
       }
   
       setIsLoading(false);
@@ -699,7 +700,7 @@ export default function SceneBuilder(props) {
                 The filler scene is a scene that acts as a transition between any of the core scenes listed above. This can be a great place to add foreshadowing events that are reintroduced with much satisfaction later in the story. Add as many of these scenes as necessary to provide a smooth flow from scene to scene.
               </p>
               <p className="pale-silver">
-                The filler scene consists of seven elements. These are Situation, Conflict, Twist/Complication/Disaster, Dilemma, Decision, and Action. Let’s look at each of these elements.
+                The filler scene consists of seven elements. These are Situation, Conflict, Twist/Mirror/Disaster, Dilemma, Decision, and Action. Let’s look at each of these elements.
               </p>
               <p className="pale-silver">
                 Situation—loosely speaking this is where the setting and the goal of the scene are defined. 
@@ -708,7 +709,7 @@ export default function SceneBuilder(props) {
                 Conflict—the goal defined above must be pursued by the characters involved. There also must be someone or something that doesn’t want those characters to achieve that goal. Perhaps these forces want to achieve the goal for themselves. Describe that conflict here. 
               </p>
               <p className="pale-silver">
-                Twist/Complication/Disaster—in the pursuit of the goal some unexpected twist or complication should occur to provide tension and intrigue to the scene. This event can benefit or punish any of the characters in the scene. For maximum value the twist should also foreshadow something that will be vital to the story later. 
+                Twist/Mirror/Disaster—in the pursuit of the goal some unexpected twist or mirror should occur to provide tension and intrigue to the scene. This event can benefit or punish any of the characters in the scene. For maximum value the twist should also foreshadow something that will be vital to the story later. 
               </p>
               <p className="pale-silver">
                 Emotion/Feeling/Reaction—this element describes the emotional reaction of the characters in the scene to the twist described above.

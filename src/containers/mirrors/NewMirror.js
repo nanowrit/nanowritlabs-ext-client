@@ -12,7 +12,7 @@ export default function NewMirror(props) {
   const [goal, setGoal] = useState("");
   const [conflictField, setConflictField] = useState("");
   const [disaster, setDisaster] = useState("");
-  const [mirrorMoment, setMirrorMoment] = useState("");
+  const [mirror, setMirror] = useState("");
   const [oneMoreTime, setOneMoreTime] = useState("");
   const [actionField, setActionField] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -44,7 +44,7 @@ export default function NewMirror(props) {
           goal,
           conflictField,
           disaster,
-          mirrorMoment,
+          mirror,
           oneMoreTime,
           actionField,
           attachment 
@@ -104,12 +104,12 @@ export default function NewMirror(props) {
                 onChange={e => setDisaster(e.target.value)}
               />
             </FormGroup>
-          <h3>The Mirror Moment</h3>
-            <FormGroup controlId="mirrorMoment">
+          <h3>The Mirror </h3>
+            <FormGroup controlId="mirror">
               <FormControl
-                value={mirrorMoment}
+                value={mirror}
                 as="textarea"
-                onChange={e => setMirrorMoment(e.target.value)}
+                onChange={e => setMirror(e.target.value)}
               />
             </FormGroup>
           <h3>One More Time</h3>
