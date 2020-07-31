@@ -100,18 +100,18 @@ export default function NewPremise(props) {
             />
           </h3>
           <Collapse className="Lexend-Tera" in={openProtagonist}>
-            <div className="pale-silver">
-              <p className="pale-silver">
-
-              </p>
-              <p className="pale-silver">
-                
-              </p>
-              <p className="pale-silver">
-                
+            <div className="pale-silver pb-3">
+              <p>
+                The protagonist is the hero(ine) of your story. You can write as little or as much as you like here. Start with just a name if you like and come back later to add a description of vice-versa.
               </p>
             </div>
           </Collapse>
+          <div className="Lexend-Tera pb-3">
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-protagonist" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/protagonist/" target="_blank" className="float-right">Discuss</a>
+          </div>
             <FormGroup controlId="protagonist">
               <FormControl
                 value={protagonist}
@@ -127,18 +127,18 @@ export default function NewPremise(props) {
             />
           </h3>
           <Collapse className="Lexend-Tera" in={openSituation}>
-            <div className="pale-silver">
-              <p className="pale-silver">
-
-              </p>
-              <p className="pale-silver">
-                
-              </p>
-              <p className="pale-silver">
-                
+            <div className="pale-silver pb-3">
+              <p>
+                The Situation is the context of your story. Context can mean just about anything but try to describe the situation as the environment that your protagonist finds themselves in.
               </p>
             </div>
           </Collapse>
+          <div className="Lexend-Tera pb-3">
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-situation" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/situation/" target="_blank" className="float-right">Discuss</a>
+          </div>
             <FormGroup controlId="situation">
               <FormControl
                 value={situation}
@@ -155,17 +155,17 @@ export default function NewPremise(props) {
           </h3>
           <Collapse className="Lexend-Tera" in={openObjective}>
             <div className="pale-silver">
-              <p className="pale-silver">
-
-              </p>
-              <p className="pale-silver">
-                
-              </p>
-              <p className="pale-silver">
-                
+              <p>
+                The objective is simply the protagonist's desire through out the entire story. What do they want?
               </p>
             </div>
           </Collapse>
+          <div className="Lexend-Tera pb-3">
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-objective" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/objective/" target="_blank" className="float-right">Discuss</a>
+          </div>
             <FormGroup controlId="objective">
               <FormControl
                 value={objective}
@@ -182,17 +182,18 @@ export default function NewPremise(props) {
           </h3>
           <Collapse className="Lexend-Tera" in={openOpponent}>
             <div className="pale-silver">
-              <p className="pale-silver">
-
-              </p>
-              <p className="pale-silver">
-                
-              </p>
-              <p className="pale-silver">
-                
+              <p>
+                The bad guy. The villian. The Opponent. Who is in your hero's way? Or or more likely, who is your hero in the way of? In this approach the Opponent can be an act of nature or aspect of the hero themselves. Or just a person. You're the boss. 
+                Describe the Opponent here. 
               </p>
             </div>
           </Collapse>
+          <div className="Lexend-Tera pb-3">
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-opponent" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/opponent/" target="_blank" className="float-right">Discuss</a>
+          </div>
             <FormGroup controlId="opponent">
               <FormControl
                 value={opponent}
@@ -207,19 +208,22 @@ export default function NewPremise(props) {
               onClick={() => setOpenDisaster(!openDisaster)} 
             />
           </h3>
-          <Collapse className="Lexend-Tera" in={openOpponent}>
+          <Collapse className="Lexend-Tera" in={openDisaster}>
             <div className="pale-silver">
-              <p className="pale-silver">
-
+              <p>
+                "But what if the hero fails? What if the villian wins?" 
               </p>
-              <p className="pale-silver">
-                
-              </p>
-              <p className="pale-silver">
-                
+              <p>
+                Describe that situation here.
               </p>
             </div>
           </Collapse>
+          <div className="Lexend-Tera pb-3">
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-disaster" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/disaster/" target="_blank" className="float-right">Discuss</a>
+          </div>
             <FormGroup controlId="disaster">
               <FormControl
                 value={disaster}
@@ -236,17 +240,20 @@ export default function NewPremise(props) {
           </h3>
           <Collapse className="Lexend-Tera" in={openOpponent}>
             <div className="pale-silver">
-              <p className="pale-silver">
-
+              <p>
+                And finally, the theme. What is your story about? What singular truth must the hero finally accept in order to overcome all odds and win in the end? This could be one word. It probably should be, eventually. To start just start free writing on what you think it is about. 
               </p>
-              <p className="pale-silver">
-                
-              </p>
-              <p className="pale-silver">
-                
+              <p>
+                You'll get to that one word in time. That is your theme.
               </p>
             </div>
           </Collapse>
+          <div className="Lexend-Tera pb-3">
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-disaster" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/disaster/" target="_blank" className="float-right">Discuss</a>
+          </div>
             <FormGroup controlId="theme">
               <FormControl
                 value={theme}
@@ -263,17 +270,17 @@ export default function NewPremise(props) {
           </h3>
           <Collapse className="Lexend-Tera" in={openOpponent}>
             <div className="pale-silver">
-              <p className="pale-silver">
+              <p>
 
-              </p>
-              <p className="pale-silver">
-                
-              </p>
-              <p className="pale-silver">
-                
               </p>
             </div>
           </Collapse>
+          <div className="Lexend-Tera pb-3">
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-disaster" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/dramatic-statement/" target="_blank" className="float-right">Discuss</a>
+          </div>
             <FormGroup controlId="dramaticStatement">
               <FormControl
                 value={dramaticStatement}
@@ -293,14 +300,14 @@ export default function NewPremise(props) {
               <p className="pale-silver">
 
               </p>
-              <p className="pale-silver">
-                
-              </p>
-              <p className="pale-silver">
-                
-              </p>
             </div>
           </Collapse>
+          <div className="Lexend-Tera pb-3">
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-disaster" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/dramatic-question/" target="_blank" className="float-right">Discuss</a>
+          </div>
             <FormGroup controlId="dramaticQuestion">
               <FormControl
                 value={dramaticQuestion}

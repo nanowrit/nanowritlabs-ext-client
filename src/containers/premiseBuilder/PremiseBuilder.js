@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { ListGroup, ListGroupItem, ProgressBar, Breadcrumb } from "react-bootstrap";
+import { ListGroup, ListGroupItem, ProgressBar, Breadcrumb, Collapse } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { API } from "aws-amplify";
 // import Lander from "./Lander";
 import "../../containers/Home.css";
+import { GoQuestion } from "react-icons/go";
 
 export default function PremiseBuilder(props) { 
   const [premises, setPremises] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
+  const [openPremisesMain, setOpenPremisesMain] = useState(false);
   let [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -109,7 +111,24 @@ export default function PremiseBuilder(props) {
             PremiseBuilder
           </Breadcrumb.Item>
         </Breadcrumb>
-        <h2>Your Premises</h2>
+        <h2>
+          Your Premises
+          <GoQuestion 
+              className="pale-silver float-right" 
+              onClick={() => setOpenPremisesMain(!openPremisesMain)} 
+            />
+        </h2>
+        <Collapse className="Lexend-Tera" in={openPremisesMain}>
+          <div className="pale-silver pb-3">
+            <p>
+              Your Premises are the premises you created using the PremiseBuilder tool. Hit 'Create a new premise' to begin.
+            </p>
+            {/* eslint-disable-next-line */}
+            <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/" target="_blank">Guide</a>
+            {/* eslint-disable-next-line */}
+            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/" target="_blank" className="float-right">Discuss</a>
+          </div>
+        </Collapse>
           <ListGroup>
             {!isLoading && renderPremisesList(premises)}
           </ListGroup>
