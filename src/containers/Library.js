@@ -47,7 +47,7 @@ export default function Library(props) {
                 <Card>
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/StorySeedsCardImg.png" />
                     {/* eslint-disable-next-line */}
-                    <a href="https://workshop.nanowritlabs.com/c/the-craft/" target="_blank">
+                    <a href="https://workshop.nanowritlabs.com/c/storyseeds/" target="_blank">
                     <Card.ImgOverlay>
                         <h1 className="spanish-gray center Aladin">Story Seeds</h1>
                     </Card.ImgOverlay>
