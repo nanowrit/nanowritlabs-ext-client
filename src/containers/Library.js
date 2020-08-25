@@ -18,7 +18,7 @@ export default function Library(props) {
                 <Card>
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/ClassicStoriesCardImg.png" />
                     {/* eslint-disable-next-line */}
-                    <a href="https://workshop.nanowritlabs.com/c/classic-stories/" target="_blank">
+                    <a href="https://library.nanowritlabs.com/c/classic-stories/" target="_blank">
                         <Card.ImgOverlay>
                             <h1 className="spanish-gray center Aladin">Classic Pulp Fiction Stories</h1>
                         </Card.ImgOverlay>
@@ -27,7 +27,7 @@ export default function Library(props) {
                 <Card>
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/CharacterCreatorCardImg.png" />
                     {/* eslint-disable-next-line */}
-                    <a href="https://workshop.nanowritlabs.com/c/workshopping/" target="_blank">
+                    <a href="https://library.nanowritlabs.com/c/workshopping/" target="_blank">
                         <Card.ImgOverlay>
                             <h1 className="spanish-gray center Aladin">Workshop</h1>
                         </Card.ImgOverlay>
@@ -38,7 +38,7 @@ export default function Library(props) {
                 <Card> 
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/TheCraftCardImg.png" />
                     {/* eslint-disable-next-line */}
-                    <a href="https://workshop.nanowritlabs.com/c/the-craft/" target="_blank">
+                    <a href="https://library.nanowritlabs.com/c/the-craft/" target="_blank">
                     <Card.ImgOverlay>
                         <h1 className="spanish-gray center Aladin">The Craft</h1>
                     </Card.ImgOverlay>
@@ -47,7 +47,7 @@ export default function Library(props) {
                 <Card>
                     <Card.Img variant="top" src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/StorySeedsCardImg.png" />
                     {/* eslint-disable-next-line */}
-                    <a href="https://workshop.nanowritlabs.com/c/storyseeds/" target="_blank">
+                    <a href="https://library.nanowritlabs.com/c/storyseeds/" target="_blank">
                     <Card.ImgOverlay>
                         <h1 className="spanish-gray center Aladin">Story Seeds</h1>
                     </Card.ImgOverlay>

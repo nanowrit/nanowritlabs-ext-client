@@ -188,7 +188,7 @@ export default function Premise(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-protagonist" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/protagonist/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/protagonist/" target="_blank" className="float-right">Discuss</a>
           </div>
             <FormGroup controlId="protagonist">
               <FormControl
@@ -215,7 +215,7 @@ export default function Premise(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-situation" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/situation/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/situation/" target="_blank" className="float-right">Discuss</a>
           </div>
             <FormGroup controlId="situation">
               <FormControl
@@ -242,7 +242,7 @@ export default function Premise(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-objective" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/objective/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/objective/" target="_blank" className="float-right">Discuss</a>
           </div>
             <FormGroup controlId="objective">
               <FormControl
@@ -270,7 +270,7 @@ export default function Premise(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-opponent" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/opponent/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/opponent/" target="_blank" className="float-right">Discuss</a>
           </div>
             <FormGroup controlId="opponent">
               <FormControl
@@ -300,7 +300,7 @@ export default function Premise(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-disaster" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/disaster/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/disaster/" target="_blank" className="float-right">Discuss</a>
           </div>
             <FormGroup controlId="disaster">
               <FormControl
@@ -327,7 +327,7 @@ export default function Premise(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-disaster" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/disaster/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/disaster/" target="_blank" className="float-right">Discuss</a>
           </div>
             <FormGroup controlId="theme">
               <FormControl
@@ -369,7 +369,7 @@ export default function Premise(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-disaster" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/dramatic-statement/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/dramatic-statement/" target="_blank" className="float-right">Discuss</a>
           </div>
             <FormGroup controlId="dramaticStatement">
               <FormControl
@@ -402,7 +402,7 @@ export default function Premise(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/#the-disaster" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/dramatic-question/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/dramatic-question/" target="_blank" className="float-right">Discuss</a>
           </div>
             <FormGroup controlId="dramaticQuestion">
               <FormControl
