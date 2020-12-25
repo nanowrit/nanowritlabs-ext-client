@@ -126,7 +126,7 @@ export default function PremiseBuilder(props) {
             {/* eslint-disable-next-line */}
             <a href="https://guides.nanowritlabs.com/guides/PremiseBuilder/" target="_blank">Guide</a>
             {/* eslint-disable-next-line */}
-            <a href="https://workshop.nanowritlabs.com/c/PremiseBuilder/" target="_blank" className="float-right">Discuss</a>
+            <a href="https://library.nanowritlabs.com/c/PremiseBuilder/" target="_blank" className="float-right">Discuss</a>
           </div>
         </Collapse>
           <ListGroup>

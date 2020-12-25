@@ -9,6 +9,7 @@ import config from "./config";
 import Footer from "./components/Footer";
 // import { AppContext } from "./libs/contextLib";
 import { onError } from "./libs/errorLib";
+import { Image } from "react-bootstrap";
 
 function App(props) {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
@@ -70,7 +71,7 @@ function App(props) {
       <div className="App container" id="AppContainer">
         <Navbar collapseOnSelect expand="md" variant="dark">
             <Navbar.Brand>
-              <Link to="/" className="spanish-gray">Nanowrit Labs</Link>
+              <Link to="/" className="spanish-gray"><Image src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/LogoImage.png" alt="Nanowrit Labs" fluid /> </Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           <Navbar.Collapse>

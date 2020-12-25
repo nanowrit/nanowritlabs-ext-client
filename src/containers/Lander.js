@@ -29,9 +29,9 @@ export default function Lander(props) {
     function RenderUnauthLander() {
         return (
             <div className="align-items-center">
-                <Jumbotron fluid className="zero-padding transparent-bg full-length">
-                <Image src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/NanowritLanderImg.png" className="full-width" />
-                <Link smooth to="/#panel-2">
+                <Jumbotron fluid className="zero-padding transparent-bg">
+                <Image src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/NanowritLabsCover1.png" className="full-width" />
+                {/* <Link smooth to="/#panel-2">
                 <h1 className="Lexend-Tera pale-silver some-headspace">
                     Are You Ready For a Tour?
                     <motion.div 
@@ -42,38 +42,21 @@ export default function Lander(props) {
                         <FaAngleDoubleDown />
                     </motion.div> 
                     </h1>
-                    </Link>
+                    </Link> */}
                 </Jumbotron>
                 <Jumbotron 
                     fluid
-                    className="transparent-bg full-length d-flex flex-column"
+                    className="transparent-bg d-flex flex-column"
                     id="panel-2"
                 >
-                    <div 
-                        className="align-self-start"
-                    >
-                        <h2 className="Lexend-Tera pale-silver align-middle">Your fiction factory takes the raw creativity you give it and runs it through a process that shapes and sculps it into a finished story.</h2>
-                    </div>
-                    <div className="align-self-end mt-auto">
-                    <Link smooth to="/#panel-3">
-                    <h1 className="Lexend-Tera pale-silver some-headspace">
-                        <FaAngleDoubleDown />
-                    </h1>
-                    </Link>
-                    </div>
+                    <Image src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/NanowritLabsCover2ndPanel.png" className="full-width" />
                 </Jumbotron>
-                <Jumbotron fluid
-                    className="transparent-bg full-length d-flex flex-column"
-                    id="panel-3"
+                <Jumbotron 
+                    fluid
+                    className="transparent-bg d-flex flex-column"
+                    id="panel-2"
                 >
-                    <h2 className="Lexend-Tera pale-silver align-middle">The first station is the PremiseBuilder. This is where we'll draw out of your imagination an interesting story idea. One that is interesting, even exciting enough to motivate you to write it just to find out what happens at the end.</h2>
-                    <div className="align-self-end mt-auto">
-                    <Link smooth to="/#panel-4">
-                    <h1 className="Lexend-Tera pale-silver some-headspace">
-                        <FaAngleDoubleDown />
-                    </h1>
-                    </Link>
-                    </div>
+                    <Image src="https://nanowritlabs-images.s3-us-west-2.amazonaws.com/NanowritLabsCover3rdPanel2.png" className="full-width" />
                 </Jumbotron>
                 <Jumbotron
                     fluid
