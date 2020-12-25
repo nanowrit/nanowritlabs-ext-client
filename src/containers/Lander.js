@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./Lander.css";
 import { HashLink as Link } from "react-router-hash-link"; 
 import { Card, CardDeck, Breadcrumb, Image, Jumbotron } from "react-bootstrap";
-import { motion } from "framer-motion";
 import { FaAngleDoubleDown } from "react-icons/fa";
 import { GiHomeGarage } from "react-icons/gi";
 
